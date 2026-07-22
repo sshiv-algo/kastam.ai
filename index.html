@@ -1,0 +1,1874 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>💀 Startup Graveyard | Find out how your startup dies</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manjari:wght@400;700&display=swap"
+    rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <style>
+    :root {
+      --ink: #141414;
+      --bg: #FAF5E9;
+      --mint: #B5EAD7;
+      --mint-light: #E2F3E7;
+      --gold: #F9CD64;
+      --pink: #F7C2D9;
+      --coral: #FF6B5E;
+      --purple: #C8B6E2;
+      --blue-twitter: #1DA1F2;
+      --reddit-orange: #FF4500;
+      --tc-green: #00A562;
+      --linkedin-blue: #0A66C1;
+      --white: #FFFFFF;
+      --shadow: 4px 4px 0 var(--ink);
+      --shadow-lg: 6px 6px 0 var(--ink);
+      --font-heading: 'Space Mono', monospace;
+      --font-body: 'Plus Jakarta Sans', 'Manjari', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-body);
+      min-height: 100vh;
+      padding-bottom: 60px;
+      background-image: radial-gradient(var(--ink) 0.75px, transparent 0.75px);
+      background-size: 18px 18px;
+    }
+
+    .mono {
+      font-family: var(--font-heading);
+    }
+
+    /* CONTAINER */
+    .container {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 20px 16px;
+    }
+
+    /* TOP BAR */
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 28px;
+      background: var(--white);
+      border: 3px solid var(--ink);
+      border-radius: 16px;
+      padding: 12px 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-icon {
+      width: 42px;
+      height: 42px;
+      border: 3px solid var(--ink);
+      border-radius: 12px;
+      background: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      box-shadow: 2px 2px 0 var(--ink);
+    }
+
+    .logo-word {
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: -0.02em;
+    }
+
+    .lang-switch {
+      display: flex;
+      gap: 4px;
+      background: var(--bg);
+      padding: 4px;
+      border: 2.5px solid var(--ink);
+      border-radius: 12px;
+    }
+
+    .lang-btn {
+      border: none;
+      background: transparent;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 12.5px;
+      cursor: pointer;
+      transition: background 0.15s, transform 0.1s;
+    }
+
+    .lang-btn.active {
+      background: var(--gold);
+      border: 2px solid var(--ink);
+      box-shadow: 2px 2px 0 var(--ink);
+    }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 30px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 5vw, 2.9rem);
+      line-height: 1.2;
+      margin: 0 0 14px;
+    }
+
+    .hero .accent {
+      background: var(--coral);
+      color: var(--white);
+      padding: 2px 10px;
+      border-radius: 8px;
+      border: 3px solid var(--ink);
+      display: inline-block;
+    }
+
+    .hero p {
+      font-size: 16.5px;
+      color: #333;
+      font-weight: 600;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* CARD BASE */
+    .card {
+      background: var(--white);
+      border: 3px solid var(--ink);
+      border-radius: 18px;
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* INTAKE SECTION */
+    .intake-card {
+      padding: 24px;
+      margin-bottom: 32px;
+      background: var(--white);
+    }
+
+    .intake-card label {
+      display: block;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 10px;
+    }
+
+    textarea {
+      width: 100%;
+      border: 3px solid var(--ink);
+      border-radius: 14px;
+      padding: 16px;
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 500;
+      resize: vertical;
+      min-height: 95px;
+      background: #FFFDF8;
+      box-shadow: inset 2px 2px 0 rgba(0, 0, 0, 0.04);
+    }
+
+    textarea:focus {
+      outline: 3px solid var(--gold);
+      outline-offset: 1px;
+    }
+
+    /* TWO ROWS ONLY FOR EXAMPLES */
+    .examples-wrapper {
+      margin-top: 14px;
+    }
+
+    .examples-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: #666;
+      margin-bottom: 8px;
+    }
+
+    .pills {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, auto);
+      gap: 8px;
+    }
+
+    @media (max-width: 640px) {
+      .pills {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .pill {
+      background: var(--mint-light);
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.15s ease;
+      box-shadow: 2px 2px 0 var(--ink);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .pill:hover {
+      background: var(--gold);
+      transform: translate(-1px, -1px);
+      box-shadow: 3px 3px 0 var(--ink);
+    }
+
+    .kill-btn {
+      margin-top: 20px;
+      width: 100%;
+      padding: 18px;
+      background: var(--coral);
+      color: var(--white);
+      border: 3px solid var(--ink);
+      border-radius: 16px;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 18px;
+      cursor: pointer;
+      box-shadow: var(--shadow-lg);
+      transition: transform 0.1s, box-shadow 0.1s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .kill-btn:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 8px 8px 0 var(--ink);
+    }
+
+    .kill-btn:active {
+      transform: translate(3px, 3px);
+      box-shadow: 2px 2px 0 var(--ink);
+    }
+
+    .kill-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* LOADING SCREEN */
+    .loading-card {
+      display: none;
+      padding: 36px 20px;
+      text-align: center;
+      background: var(--gold);
+      margin-bottom: 30px;
+    }
+
+    .shovel-spin {
+      font-size: 48px;
+      display: inline-block;
+      animation: dig 0.7s infinite alternate ease-in-out;
+    }
+
+    @keyframes dig {
+      0% {
+        transform: rotate(-20deg) scale(1);
+      }
+
+      100% {
+        transform: rotate(25deg) scale(1.15);
+      }
+    }
+
+    .loading-msg {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 18px;
+      margin-top: 16px;
+      min-height: 30px;
+    }
+
+    /* RESULTS DASHBOARD (GRID) */
+    #results {
+      display: none;
+    }
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 20px;
+    }
+
+    .col-12 {
+      grid-column: span 12;
+    }
+
+    .col-8 {
+      grid-column: span 8;
+    }
+
+    .col-6 {
+      grid-column: span 6;
+    }
+
+    .col-4 {
+      grid-column: span 4;
+    }
+
+    @media (max-width: 860px) {
+
+      .col-8,
+      .col-6,
+      .col-4 {
+        grid-column: span 12;
+      }
+    }
+
+    .card-header {
+      background: var(--ink);
+      color: var(--white);
+      padding: 10px 16px;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 12.5px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      letter-spacing: 0.05em;
+    }
+
+    .card-body {
+      padding: 20px;
+    }
+
+    /* 1. SURVIVAL CHANCE METER */
+    .meter-card .card-body {
+      background: var(--mint);
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .gauge-box {
+      position: relative;
+      width: 110px;
+      height: 110px;
+      flex-shrink: 0;
+    }
+
+    .gauge-svg {
+      transform: rotate(-90deg);
+      width: 100%;
+      height: 100%;
+    }
+
+    .gauge-bg {
+      fill: none;
+      stroke: rgba(20, 20, 20, 0.15);
+      stroke-width: 12;
+    }
+
+    .gauge-fill {
+      fill: none;
+      stroke: var(--coral);
+      stroke-width: 12;
+      stroke-dasharray: 283;
+      stroke-dashoffset: 240;
+      transition: stroke-dashoffset 1.5s ease-out;
+    }
+
+    .gauge-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 24px;
+    }
+
+    .verdict-box h3 {
+      margin: 0 0 6px;
+      font-family: var(--font-heading);
+      font-size: 20px;
+    }
+
+    .verdict-box p {
+      margin: 0;
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.45;
+    }
+
+    /* 2. MATCHING ATTACHED IMAGE DEATH CERTIFICATE */
+    .cert-card-attached {
+      background: var(--mint);
+      border: 3px solid var(--ink);
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+    }
+
+    .cert-coffin-icon {
+      font-size: 40px;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    .cert-attached-title {
+      text-align: center;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 28px;
+      margin: 0 0 20px;
+      color: var(--ink);
+    }
+
+    .cert-attached-rows {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .cert-attached-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 14px 0;
+      border-bottom: 2px dashed rgba(20, 20, 20, 0.3);
+      font-size: 15px;
+    }
+
+    .cert-attached-row:last-child {
+      border-bottom: none;
+    }
+
+    .cert-attached-label {
+      font-weight: 700;
+      color: var(--ink);
+      font-size: 15px;
+      flex-shrink: 0;
+    }
+
+    .cert-attached-val {
+      font-weight: 700;
+      text-align: right;
+      max-width: 65%;
+      line-height: 1.4;
+      color: var(--ink);
+    }
+
+    .cert-attached-dl-btn {
+      margin-top: 22px;
+      width: 100%;
+      padding: 16px;
+      background: var(--white);
+      border: 3px solid var(--ink);
+      border-radius: 14px;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 15px;
+      cursor: pointer;
+      box-shadow: 4px 4px 0 var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.15s ease;
+    }
+
+    .cert-attached-dl-btn:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0 var(--ink);
+      background: #FFFDF5;
+    }
+
+    .cert-attached-dl-btn .btn-icon-badge {
+      background: #4A8CFF;
+      color: var(--white);
+      padding: 3px 6px;
+      border-radius: 6px;
+      font-size: 12px;
+    }
+
+    /* ROTATED FAILURE SEAL ON CERTIFICATE */
+    .failure-seal {
+      position: absolute;
+      top: 25px;
+      right: 25px;
+      width: 105px;
+      height: 105px;
+      border: 4px dashed var(--coral);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--coral);
+      font-family: var(--font-heading);
+      font-weight: 700;
+      text-align: center;
+      transform: rotate(-18deg);
+      background: rgba(255, 107, 94, 0.1);
+      box-shadow: 0 0 0 3px var(--mint), 0 0 0 6px var(--coral);
+      pointer-events: none;
+      line-height: 1.1;
+      text-transform: uppercase;
+    }
+
+    .failure-seal .seal-icon {
+      font-size: 22px;
+      margin-bottom: 2px;
+    }
+
+    .failure-seal .seal-txt {
+      font-size: 10px;
+      letter-spacing: 0.5px;
+    }
+
+    /* 3. BURN RATE VISUALIZER */
+    .burn-card .card-body {
+      background: var(--pink);
+    }
+
+    .burn-bar-wrap {
+      margin-bottom: 14px;
+    }
+
+    .burn-label {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 12px;
+      margin-bottom: 6px;
+    }
+
+    .bar-container {
+      height: 22px;
+      background: var(--white);
+      border: 2.5px solid var(--ink);
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .bar-fill {
+      height: 100%;
+      background: var(--coral);
+      width: 95%;
+      transition: width 1s ease;
+    }
+
+    .bar-fill.rev {
+      background: var(--mint);
+      width: 5%;
+    }
+
+    /* 4. TEAM ROSTER */
+    .team-card .card-body {
+      background: #F5E8FF;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .team-member {
+      background: var(--white);
+      border: 2.5px solid var(--ink);
+      border-radius: 12px;
+      padding: 10px 12px;
+      box-shadow: 2px 2px 0 var(--ink);
+    }
+
+    .team-role {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 11px;
+      color: var(--coral);
+      text-transform: uppercase;
+    }
+
+    .team-desc {
+      font-size: 13px;
+      font-weight: 600;
+      margin-top: 4px;
+      line-height: 1.35;
+    }
+
+    /* 5. REDDIT CARD (ACTUAL REDDIT CHARACTER + NEO-BRUTALIST STYLE) */
+    .reddit-card .card-header {
+      background: var(--reddit-orange);
+    }
+
+    .reddit-card .card-body {
+      background: #FFF3EC;
+    }
+
+    .reddit-post-box {
+      background: var(--white);
+      border: 2.5px solid var(--ink);
+      border-radius: 14px;
+      padding: 14px;
+      box-shadow: 3px 3px 0 var(--ink);
+    }
+
+    .reddit-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #666;
+      margin-bottom: 8px;
+    }
+
+    .reddit-sub {
+      color: var(--reddit-orange);
+      font-family: var(--font-heading);
+    }
+
+    .reddit-comment-item {
+      border-left: 3.5px solid var(--reddit-orange);
+      padding-left: 12px;
+      margin-top: 12px;
+    }
+
+    .reddit-comment-author {
+      font-size: 11px;
+      font-weight: 700;
+      font-family: var(--font-heading);
+      color: #555;
+      margin-bottom: 4px;
+    }
+
+    .reddit-comment-body {
+      font-size: 14.5px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .reddit-vote-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #777;
+      font-family: var(--font-heading);
+    }
+
+    /* 6. TWITTER / X CARD (ACTUAL TWITTER CHARACTER) */
+    .twitter-card .card-header {
+      background: #000000;
+    }
+
+    .twitter-card .card-body {
+      background: #E8F5FF;
+    }
+
+    .tweet-box {
+      background: var(--white);
+      border: 2.5px solid var(--ink);
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: 3px 3px 0 var(--ink);
+    }
+
+    .tweet-author-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .tweet-avatar {
+      width: 40px;
+      height: 40px;
+      background: var(--gold);
+      border: 2px solid var(--ink);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+
+    .tweet-names {
+      line-height: 1.2;
+    }
+
+    .tweet-display-name {
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    .tweet-handle {
+      font-size: 12px;
+      color: #666;
+      font-family: var(--font-heading);
+    }
+
+    .tweet-text {
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.45;
+      margin-bottom: 12px;
+    }
+
+    .tweet-stats {
+      display: flex;
+      justify-content: space-between;
+      border-top: 1.5px dashed rgba(20, 20, 20, 0.2);
+      padding-top: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #666;
+      font-family: var(--font-heading);
+    }
+
+    /* 7. FAKE TECHCRUNCH CARD (ACTUAL TECHCRUNCH CHARACTER) */
+    .tc-card .card-header {
+      background: var(--tc-green);
+    }
+
+    .tc-card .card-body {
+      background: #EAF8F1;
+    }
+
+    .tc-article-box {
+      background: var(--white);
+      border: 2.5px solid var(--ink);
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: 3px 3px 0 var(--ink);
+    }
+
+    .tc-kicker-badge {
+      display: inline-block;
+      background: var(--tc-green);
+      color: var(--white);
+      font-family: var(--font-heading);
+      font-size: 10.5px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+      margin-bottom: 8px;
+    }
+
+    .tc-headline-text {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 1.3;
+      margin: 0 0 8px;
+    }
+
+    .tc-sub-text {
+      font-size: 14px;
+      color: #444;
+      font-weight: 500;
+      line-height: 1.4;
+      margin: 0 0 10px;
+    }
+
+    .tc-byline {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #777;
+      border-top: 1.5px dashed rgba(20, 20, 20, 0.15);
+      padding-top: 8px;
+    }
+
+    /* 8. EMAIL CARD (ACTUAL EMAIL CLIENT CHARACTER) */
+    .email-card .card-header {
+      background: #4B6584;
+    }
+
+    .email-card .card-body {
+      background: #F1F4F8;
+    }
+
+    .email-box {
+      background: var(--white);
+      border: 2.5px solid var(--ink);
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: 3px 3px 0 var(--ink);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .email-headers {
+      border-bottom: 2px dashed rgba(20, 20, 20, 0.2);
+      padding-bottom: 10px;
+      margin-bottom: 12px;
+      font-size: 12.5px;
+    }
+
+    .email-header-line {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .email-header-line .hk {
+      font-weight: 700;
+      color: #666;
+      width: 60px;
+      flex-shrink: 0;
+      font-family: var(--font-heading);
+    }
+
+    .email-header-line .hv {
+      font-weight: 600;
+      word-break: break-all;
+    }
+
+    .email-stamp {
+      display: inline-block;
+      margin-top: 12px;
+      background: var(--coral);
+      color: var(--white);
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 11px;
+      padding: 5px 12px;
+      border-radius: 8px;
+      border: 2px solid var(--ink);
+      transform: rotate(-3deg);
+    }
+
+    /* 9. LINKEDIN APOLOGY CARD (ACTUAL LINKEDIN CHARACTER) */
+    .linkedin-card .card-header {
+      background: var(--linkedin-blue);
+    }
+
+    .linkedin-card .card-body {
+      background: #EAF2FB;
+    }
+
+    .linkedin-post-box {
+      background: var(--white);
+      border: 2.5px solid var(--ink);
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: 3px 3px 0 var(--ink);
+    }
+
+    .linkedin-author-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .linkedin-avatar {
+      width: 42px;
+      height: 42px;
+      background: var(--purple);
+      border: 2px solid var(--ink);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+
+    .linkedin-author-info {
+      line-height: 1.25;
+    }
+
+    .linkedin-name {
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    .linkedin-title-sub {
+      font-size: 11.5px;
+      color: #666;
+      font-weight: 600;
+    }
+
+    .linkedin-post-body {
+      font-size: 14px;
+      line-height: 1.5;
+      white-space: pre-wrap;
+      margin-bottom: 12px;
+    }
+
+    .linkedin-reactions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1.5px dashed rgba(20, 20, 20, 0.2);
+      padding-top: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #666;
+    }
+
+    /* 10. THE PIVOT (USEFUL SECTION) */
+    .pivot-card .card-body {
+      background: var(--mint);
+    }
+
+    .pivot-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .pivot-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .pivot-tag {
+      font-family: var(--font-heading);
+      font-size: 11px;
+      font-weight: 700;
+      background: var(--ink);
+      color: var(--gold);
+      padding: 4px 8px;
+      border-radius: 6px;
+      flex-shrink: 0;
+    }
+
+    /* PERSONA SWITCHER */
+    .persona-card .card-body {
+      background: var(--gold);
+    }
+
+    .persona-tabs {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      margin-bottom: 12px;
+    }
+
+    .persona-tab {
+      flex-shrink: 0;
+      padding: 8px 12px;
+      background: var(--white);
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 12px;
+      cursor: pointer;
+    }
+
+    .persona-tab.active {
+      background: var(--coral);
+      color: var(--white);
+      box-shadow: 2px 2px 0 var(--ink);
+    }
+
+    .persona-quote {
+      background: var(--white);
+      border: 2px solid var(--ink);
+      border-radius: 12px;
+      padding: 14px;
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.45;
+    }
+
+    /* ACTION BUTTONS */
+    .action-bar {
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .action-btn {
+      flex: 1;
+      padding: 16px;
+      border: 3px solid var(--ink);
+      border-radius: 14px;
+      background: var(--white);
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 15px;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      transition: all 0.15s ease;
+      text-align: center;
+    }
+
+    .action-btn:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0 var(--ink);
+    }
+
+    .action-btn.primary {
+      background: var(--gold);
+    }
+
+    /* LANGUAGE MODAL */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(20, 20, 20, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      padding: 20px;
+      backdrop-filter: blur(4px);
+    }
+
+    .modal-content {
+      background: var(--bg);
+      border: 4px solid var(--ink);
+      border-radius: 24px;
+      padding: 32px 24px;
+      max-width: 440px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 8px 8px 0 var(--ink);
+      animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    @keyframes popIn {
+      0% {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .modal-icon {
+      font-size: 52px;
+      margin-bottom: 10px;
+    }
+
+    .modal-title {
+      font-family: var(--font-heading);
+      font-size: 22px;
+      font-weight: 700;
+      margin: 0 0 10px;
+    }
+
+    .modal-sub {
+      font-size: 14.5px;
+      font-weight: 600;
+      color: #555;
+      margin-bottom: 24px;
+    }
+
+    .lang-select-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .lang-option-card {
+      background: var(--white);
+      border: 3px solid var(--ink);
+      border-radius: 16px;
+      padding: 18px 12px;
+      cursor: pointer;
+      box-shadow: 4px 4px 0 var(--ink);
+      transition: all 0.15s ease;
+    }
+
+    .lang-option-card:hover {
+      background: var(--gold);
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0 var(--ink);
+    }
+
+    .lang-flag {
+      font-size: 32px;
+      margin-bottom: 6px;
+    }
+
+    .lang-name {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 15px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 45px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #444;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ONBOARDING LANGUAGE MODAL -->
+  <div class="modal-overlay" id="langModal">
+    <div class="modal-content">
+      <div class="modal-icon">💀</div>
+      <h2 class="modal-title">Select Your Roast Language</h2>
+      <p class="modal-sub">Choose how you want your startup dreams destroyed:</p>
+      <div class="lang-select-grid">
+        <div class="lang-option-card" onclick="setLanguage('en')">
+          <div class="lang-flag">🇬🇧</div>
+          <div class="lang-name">English</div>
+        </div>
+        <div class="lang-option-card" onclick="setLanguage('ml')">
+          <div class="lang-flag">🇮🇳</div>
+          <div class="lang-name">മലയാളം</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- TOPBAR -->
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo-icon">💀</div>
+        <div class="logo-word mono">STARTUP GRAVEYARD</div>
+      </div>
+      <div class="lang-switch">
+        <button class="lang-btn active" id="btn-en" onclick="setLanguage('en')">EN</button>
+        <button class="lang-btn" id="btn-ml" onclick="setLanguage('ml')">മലയാളം(Beta)</button>
+      </div>
+    </div>
+
+    <!-- HERO SECTION (NO BRUTAL AI AUTOPSY TAG AS REQUESTED) -->
+    <div class="hero">
+      <h1 id="ui-title">Every startup dies.<br><span class="accent">Find out how yours does.</span></h1>
+      <p id="ui-subtitle">Before investors reject you... Let AI roast your delusion first.</p>
+    </div>
+
+    <!-- INTAKE CARD -->
+    <div class="card intake-card">
+      <label class="mono" id="ui-label">Describe your billion-dollar startup idea</label>
+      <textarea id="ideaInput" placeholder="e.g. Uber for pigeons, or an AI therapist for potatoes..."></textarea>
+
+      <!-- EXACTLY 2 ROWS OF EXAMPLE PILLS -->
+      <div class="examples-wrapper">
+        <div class="examples-title" id="ui-examples-title">💡 Or click a delusional example:</div>
+        <div class="pills" id="pillsContainer"></div>
+      </div>
+
+      <button class="kill-btn" id="killBtn" onclick="killStartup()">
+        <span>☠️</span> <span id="ui-btn-text">Roast My Startup</span>
+      </button>
+    </div>
+
+    <!-- LOADING SCREEN -->
+    <div class="card loading-card" id="loadingCard">
+      <div class="shovel-spin">🪏</div>
+      <div class="loading-msg" id="loadingMsg">Analyzing delusion...</div>
+    </div>
+
+    <!-- RESULTS DASHBOARD -->
+    <div id="results">
+      <div class="dashboard-grid">
+
+        <!-- 1. SURVIVAL CHANCE METER -->
+        <div class="col-8 meter-card card">
+          <div class="card-header">
+            <span>📊 SURVIVAL CHANCE</span>
+            <span class="mono">VERDICT</span>
+          </div>
+          <div class="card-body">
+            <div class="gauge-box">
+              <svg class="gauge-svg" viewBox="0 0 100 100">
+                <circle class="gauge-bg" cx="50" cy="50" r="45"></circle>
+                <circle class="gauge-fill" id="gaugeCircle" cx="50" cy="50" r="45"></circle>
+              </svg>
+              <div class="gauge-text" id="gaugeVal">12%</div>
+            </div>
+            <div class="verdict-box">
+              <h3 id="verdictHeadline">DEAD ON ARRIVAL</h3>
+              <p id="verdictSub">Customers literally preferred doing nothing over using your product.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. DEATH CERTIFICATE (MATCHING ATTACHED IMAGE SPECIFICATION) -->
+        <div class="col-4 cert-card-attached" id="certCard">
+          <div class="failure-seal" id="failureSeal">
+            <div class="seal-icon">☠️</div>
+            <div class="seal-txt" id="sealTxt">OFFICIALLY<br>FAILED</div>
+          </div>
+
+          <div class="cert-coffin-icon">⚰️</div>
+          <h2 class="cert-attached-title" id="certName">ParkSnark</h2>
+
+          <div class="cert-attached-rows">
+            <div class="cert-attached-row">
+              <span class="cert-attached-label" id="k-cause">Cause of Death</span>
+              <span class="cert-attached-val" id="certCause">Turned out 'community accountability' is just 'neighbors
+                screaming at each other' with a UI.</span>
+            </div>
+            <div class="cert-attached-row">
+              <span class="cert-attached-label" id="k-died">Time Alive</span>
+              <span class="cert-attached-val" id="certTime">14 months</span>
+            </div>
+            <div class="cert-attached-row">
+              <span class="cert-attached-label" id="k-burned">Money Burned</span>
+              <span class="cert-attached-val" id="certBurn">$4.2M</span>
+            </div>
+            <div class="cert-attached-row">
+              <span class="cert-attached-label" id="k-pivot">Final Pivot</span>
+              <span class="cert-attached-val" id="certPivot">Blockchain Parking Permits</span>
+            </div>
+          </div>
+
+          <button class="cert-attached-dl-btn" id="dlCertBtn" onclick="downloadCert()">
+            <span class="btn-icon-badge">⬇️</span>
+            <span>Download Death Certificate</span>
+          </button>
+        </div>
+
+        <!-- 3. BURN RATE VISUALIZER -->
+        <div class="col-6 burn-card card">
+          <div class="card-header">
+            <span>💸 FINANCIAL DISASTER</span>
+            <span class="mono">BURN RATE</span>
+          </div>
+          <div class="card-body">
+            <div class="burn-bar-wrap">
+              <div class="burn-label"><span id="lbl-burn">MONEY BURNED</span><span id="val-burn">$4,200,000</span></div>
+              <div class="bar-container">
+                <div class="bar-fill"></div>
+              </div>
+            </div>
+            <div class="burn-bar-wrap" style="margin-bottom:0;">
+              <div class="burn-label"><span id="lbl-rev">REVENUE GENERATED</span><span id="val-rev">$14.50</span></div>
+              <div class="bar-container">
+                <div class="bar-fill rev"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. YOUR TEAM ROSTER -->
+        <div class="col-6 team-card card">
+          <div class="card-header">
+            <span>👥 FOUNDING TEAM</span>
+            <span class="mono">DELUSION LEVEL: 10/10</span>
+          </div>
+          <div class="card-body">
+            <div class="team-grid">
+              <div class="team-member">
+                <div class="team-role">CEO</div>
+                <div class="team-desc" id="team-ceo">LinkedIn Motivational Poster Generator</div>
+              </div>
+              <div class="team-member">
+                <div class="team-role">CTO</div>
+                <div class="team-desc" id="team-cto">Watched 2 React tutorials on YouTube</div>
+              </div>
+              <div class="team-member">
+                <div class="team-role">MARKETING</div>
+                <div class="team-desc" id="team-mkt">Posts "Big things coming 🚀" daily</div>
+              </div>
+              <div class="team-member">
+                <div class="team-role">SALES</div>
+                <div class="team-desc" id="team-sales">Founder's Mom</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. ANGRY CUSTOMER REVIEW -->
+        <div class="col-4 card">
+          <div class="card-header">
+            <span>⭐ CUSTOMER REVIEWS</span>
+            <span class="mono">1.0 / 5.0</span>
+          </div>
+          <div class="card-body" style="background:#FFF3DD;">
+            <div style="color:var(--coral); font-size:18px; margin-bottom:6px;">★☆☆☆☆</div>
+            <div style="font-size:15px; font-weight:600; line-height:1.4;" id="reviewText">
+              "I installed it. Realized it was useless in 4 seconds. Even my free trial asked for a refund."
+            </div>
+            <div style="font-size:12px; font-weight:700; color:#666; margin-top:8px;" id="reviewerName">— Disappointed
+              User</div>
+          </div>
+        </div>
+
+        <!-- 6. REDDIT CARD (AUTHENTIC REDDIT UI CHARACTER) -->
+        <div class="col-4 reddit-card card">
+          <div class="card-header">
+            <span>r/Startups · REDDIT THREAD</span>
+            <span class="mono">🔥 1.4k Upvotes</span>
+          </div>
+          <div class="card-body">
+            <div class="reddit-post-box">
+              <div class="reddit-meta">
+                <span class="reddit-sub">r/Startups</span> • Posted by u/FounderDelusion
+              </div>
+              <div style="font-size:14px; font-weight:700; margin-bottom:6px;" id="redPostTitle">Does anyone else think
+                this idea will disrupt Silicon Valley?</div>
+              <div class="reddit-comment-item">
+                <div class="reddit-comment-author">u/TechTroll99 • 842 pts</div>
+                <div class="reddit-comment-body" id="red-c1">"Bro literally invented unemployment with an API call."
+                </div>
+              </div>
+              <div class="reddit-comment-item">
+                <div class="reddit-comment-author">u/SaaS_God • 519 pts</div>
+                <div class="reddit-comment-body" id="red-c2">"My Smart Fridge has better product-market fit."</div>
+              </div>
+              <div class="reddit-vote-bar">▲ Upvote • 💬 148 Comments • ↗ Share</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. TWITTER / X CARD (AUTHENTIC TWITTER UI CHARACTER) -->
+        <div class="col-4 twitter-card card">
+          <div class="card-header">
+            <span>🕮 TWITTER / X ROAST</span>
+            <span class="mono">VIRAL TWEET</span>
+          </div>
+          <div class="card-body">
+            <div class="tweet-box">
+              <div class="tweet-author-row">
+                <div class="tweet-avatar">☠️</div>
+                <div class="tweet-names">
+                  <div class="tweet-display-name">VC Roast Bot ✔️</div>
+                  <div class="tweet-handle" id="tweetHandle">@VC_Troll</div>
+                </div>
+              </div>
+              <div class="tweet-text" id="tweetBody">
+                "POV: You spent 18 months and $4.2M building something Google will launch for free next Tuesday."
+              </div>
+              <div class="tweet-stats">
+                <span>💬 142</span> <span>🔁 890</span> <span>❤️ 4.2K</span> <span>📊 180K</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8. FAKE TECHCRUNCH CARD (AUTHENTIC TECHCRUNCH CHARACTER) -->
+        <div class="col-6 tc-card card">
+          <div class="card-header">
+            <span>TechCrunch</span>
+            <span class="mono">STARTUPS & AI</span>
+          </div>
+          <div class="card-body">
+            <div class="tc-article-box">
+              <span class="tc-kicker-badge" id="tcKicker">EXCLUSIVE · SHUTDOWN</span>
+              <h3 class="tc-headline-text" id="tcHeadline">
+                Hyped AI Startup Raises $4.2M, Shuts Down 3 Weeks Later
+              </h3>
+              <p class="tc-sub-text" id="tcSub">
+                Founders admit they forgot to check if anyone actually wanted to pay for it.
+              </p>
+              <div class="tc-byline">By Alex Wilhelm • 3 min read</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9. INVESTOR REJECTION EMAIL (AUTHENTIC EMAIL CLIENT CHARACTER) -->
+        <div class="col-6 email-card card">
+          <div class="card-header">
+            <span>✉️ INBOX · REJECTION LETTER</span>
+            <span class="mono">UNREAD</span>
+          </div>
+          <div class="card-body">
+            <div class="email-box">
+              <div class="email-headers">
+                <div class="email-header-line"><span class="hk">From:</span><span class="hv"
+                    id="emailFrom">partners@a16z-parody.vc</span></div>
+                <div class="email-header-line"><span class="hk">To:</span><span class="hv">founder@delusion.ai</span>
+                </div>
+                <div class="email-header-line"><span class="hk">Subject:</span><span class="hv"
+                    id="emailSubject">Investment Decision: ParkSnark Pitch</span></div>
+              </div>
+              <div id="vcBody">
+                "Dear Founder,<br><br>After careful consideration, we have decided to invest in literally anything else
+                on planet Earth.<br><br>Kind regards,<br><b>Every VC Ever</b>"
+              </div>
+              <div class="email-stamp">PASSED ❌</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 10. LINKEDIN FOUNDER APOLOGY CARD (AUTHENTIC LINKEDIN CHARACTER) -->
+        <div class="col-6 linkedin-card card">
+          <div class="card-header">
+            <span>LinkedIn</span>
+            <span class="mono">FOUNDER POST</span>
+          </div>
+          <div class="card-body">
+            <div class="linkedin-post-box">
+              <div class="linkedin-author-row">
+                <div class="linkedin-avatar">🚀</div>
+                <div class="linkedin-author-info">
+                  <div class="linkedin-name">Delusional Founder • 1st</div>
+                  <div class="linkedin-title-sub">Ex-Google • 10x Hustler • Failed 4x Startup CEO</div>
+                </div>
+              </div>
+              <div class="linkedin-post-body" id="linkedinPost">
+                "I've made the extremely difficult decision to sunset our dream. We failed, but we learned so much about
+                grit, synergy, and losing investor money! 🙏❤️🚀 #FounderJourney #Pivot"
+              </div>
+              <div class="linkedin-reactions">
+                <span>👍💡❤️ 1,420 reactions</span>
+                <span>💬 384 comments</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 11. PERSONA SWITCHER -->
+        <div class="col-6 persona-card card">
+          <div class="card-header">
+            <span>🎭 HEAR IT FROM THE BOARD</span>
+            <span class="mono">VOICE SELECTOR</span>
+          </div>
+          <div class="card-body">
+            <div class="persona-tabs" id="personaTabs"></div>
+            <div class="persona-quote" id="personaQuote">"I'm out."</div>
+          </div>
+        </div>
+
+        <!-- 12. THE PIVOT (USEFUL SECTION) -->
+        <div class="col-12 pivot-card card">
+          <div class="card-header">
+            <span>🔥 THE PIVOT (GENUINELY USEFUL ADVICE)</span>
+            <span class="mono">HOW TO ACTUALLY FIX THIS</span>
+          </div>
+          <div class="card-body">
+            <div class="pivot-grid">
+              <div class="pivot-row"><span class="pivot-tag">TARGET AUDIENCE</span><span id="p-aud">Target B2B
+                  enterprise managers instead of random consumers.</span></div>
+              <div class="pivot-row"><span class="pivot-tag">PRICING</span><span id="p-price">Charge $99/mo per seat
+                  instead of a useless free tier.</span></div>
+              <div class="pivot-row"><span class="pivot-tag">FEATURES TO CUT</span><span id="p-cut">Remove all AI
+                  gimmicks and focus on one core utility.</span></div>
+              <div class="pivot-row"><span class="pivot-tag">GO TO MARKET</span><span id="p-gtm">Direct cold email
+                  outreach to VP of Operations.</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ACTION BUTTONS -->
+      <div class="action-bar">
+        <button class="action-btn primary" onclick="downloadCert()">⬇️ Download Death Certificate</button>
+        <button class="action-btn" onclick="copyRoast()">📋 Copy Roast Report</button>
+        <button class="action-btn" onclick="resetApp()">⚰️ Bury Another Startup</button>
+      </div>
+    </div>
+
+    <!-- BOTTOM FOOTER UPDATED EXACTLY AS REQUESTED -->
+    <footer>
+      <p>Your idea is safe here. Your ego? No promises.</p>
+    </footer>
+
+  </div>
+
+  <script>
+    let currentLang = 'en';
+    let currentData = null;
+
+    // DICTIONARY FOR UI STRINGS (EN & ML)
+    const DICT = {
+      en: {
+        title: "Every startup dies.<br><span class=\"accent\">Find out how yours does.</span>",
+        subtitle: "Before investors reject you... Let AI roast your delusion first.",
+        label: "Describe your billion-dollar startup idea",
+        placeholder: "e.g. Uber for pigeons, or an AI therapist for potatoes...",
+        examplesTitle: "💡 Or click a delusional example:",
+        btnText: "Roast My Startup",
+        loadingMsgs: [
+          "Analyzing delusion...",
+          "Calling disappointed investors...",
+          "Checking if your mom is your only customer...",
+          "Calculating burn rate...",
+          "Generating fake TechCrunch headline...",
+          "Making co-founder cry...",
+          "Writing LinkedIn apology post...",
+          "Almost destroying your dreams..."
+        ],
+        examples: [
+          "Uber for pigeons",
+          "AI therapist for potatoes",
+          "Tinder for introverts",
+          "Netflix for PDFs",
+          "Spotify for dogs",
+          "SaaS for ghosts"
+        ],
+        sealTxt: "OFFICIALLY<br>FAILED",
+        kDied: "Time Alive", kCause: "Cause of Death", kBurned: "Money Burned", kPivot: "Final Pivot",
+        lblBurn: "MONEY BURNED", lblRev: "REVENUE GENERATED",
+        footerText: "Your idea is safe here. Your ego? No promises."
+      },
+      ml: {
+        title: "എല്ലാ സ്റ്റാർട്ടപ്പുകളും പൂട്ടും.<br><span class=\"accent\">നിങ്ങളുടേത് എങ്ങനെ പൂട്ടുമെന്ന് കാണാം!</span>",
+        subtitle: "ഇൻവെസ്റ്റർമാർ നിങ്ങളെ തള്ളുന്നതിന് മുൻപ്... AI വച്ച് സൗജന്യമായി ട്രോളൂ!",
+        label: "നിങ്ങളുടെ കോടികളുടെ സ്റ്റാർട്ടപ്പ് ഐഡിയ പറയൂ",
+        placeholder: "ഉദാഹരണത്തിന്: പ്രാവിനുള്ള ഊബർ, അല്ലെങ്കിൽ ഉരുളക്കിഴങ്ങിന് AI കൗൺസിലിംഗ്...",
+        examplesTitle: "💡 അല്ലെങ്കിൽ ഈ തമാശ ഐഡിയകളിൽ ക്ലിക്ക് ചെയ്യൂ:",
+        btnText: "എന്റെ സ്റ്റാർട്ടപ്പ് ട്രോളൂ! ☠️",
+        loadingMsgs: [
+          "അമളി കണ്ടുപിടിക്കുന്നു...",
+          "വീട്ടുകാർ അറിഞ്ഞാൽ കൊള്ളാം...",
+          "ഇൻവെസ്റ്റർമാർ ചിരിച്ചു മണ്ണുകപ്പുന്നു...",
+          "പണം വെള്ളത്തിലാകുന്നത് കണക്കാക്കുന്നു...",
+          "ഫെയ്ക്ക് ന്യൂസ് പേപ്പർ വാർത്ത ഉണ്ടാക്കുന്നു...",
+          "പൂട്ടിക്കെട്ടാൻ സമയമായി...",
+          "ലിങ്ക്ഡ്ഇൻ മാപ്പപേക്ഷ തയ്യാറാക്കുന്നു...",
+          "സ്വപ്നം തകർക്കാൻ പോകുന്നു..."
+        ],
+        examples: [
+          "പ്രാവിനുള്ള Uber",
+          "ഉരുളക്കിഴങ്ങിന് AI തെറാപ്പി",
+          "പട്ടിക്ക് Spotify",
+          "മൾട്ടിപ്ലെയർ ലുഡോ SaaS",
+          "പ്രേതങ്ങൾക്ക് Tinder",
+          "ചായ കുടിക്കാൻ കോപൈലറ്റ്"
+        ],
+        sealTxt: "പൂട്ടിപ്പോയി<br>വട്ടപ്പൂജ ☠️",
+        kDied: "ആയുസ്സ്", kCause: "കാരണം", kBurned: "നഷ്ടപ്പെടുത്തിയത്", kPivot: "അവസാന തന്ത്രം",
+        lblBurn: "നഷ്ടപ്പെടുത്തിയ തുക", lblRev: "ഉണ്ടാക്കിയ വരുമാനം",
+        footerText: "നിങ്ങളുടെ ഐഡിയ ഇവിടെ സുരക്ഷിതമാണ്. നിങ്ങളുടെ ഈഗോയോ? ഉറപ്പില്ല!"
+      }
+    };
+
+    // PRE-BUILT EXTRA-SAVAGE MOCK RESPONSES
+    const MOCK_ROASTS = {
+      en: {
+        survival: 7,
+        headline: "DEAD ON ARRIVAL",
+        verdict: "Customers literally preferred doing nothing over using your product.",
+        startup_name: "ParkSnark",
+        time_alive: "14 months",
+        cause: "Turned out 'community accountability' is just 'neighbors screaming at each other' with a UI.",
+        burned: "$4.2M",
+        pivot: "Blockchain Parking Permits",
+        rev_val: "$14.50",
+        team_ceo: "LinkedIn Motivational Poster Generator",
+        team_cto: "Watched two 10-minute React tutorials",
+        team_mkt: "Posts 'Big announcement tomorrow 🚀' daily",
+        team_sales: "Founder's Mom",
+        review: "I downloaded it, lost 30 seconds of my life, and immediately uninstalled. Even my free trial asked for a refund.",
+        reviewer: "Disappointed Tester",
+        red_title: "Does anyone else think ParkSnark will disrupt Silicon Valley?",
+        reddit1: "Bro literally invented unemployment with an API call.",
+        reddit2: "My Smart Fridge has better product-market fit than this.",
+        tweet_handle: "@VC_Troll",
+        tweet_body: "POV: You spent 18 months and $4.2M building something Google will launch for free next Tuesday.",
+        tc_kicker: "EXCLUSIVE · COLLAPSE",
+        tc_headline: "Hyped AI Startup Raises $4.2M, Shuts Down 3 Weeks Later",
+        tc_sub: "Founders admit they forgot to ask if anyone actually wanted to pay for it.",
+        email_from: "partners@a16z-parody.vc",
+        email_subject: "Investment Decision: ParkSnark Pitch",
+        vc_body: "Dear Founder,<br><br>After careful consideration, we have decided to invest in literally anything else on planet Earth.<br><br>Kind regards,<br><b>Every VC Ever</b>",
+        linkedin: "I've made the extremely difficult decision to sunset our startup. We failed, but we learned so much about grit, synergy, and losing investor money! 🙏❤️🚀 #FounderJourney #Pivot",
+        personas: {
+          "💀 Brutal VC": "I wouldn't invest in this if you paid me to take your shares.",
+          "😂 Reddit": "This exists because nobody told the founder 'no'.",
+          "🦈 Shark Tank": "This is a hobby, not a business. And for that reason, I'm out.",
+          "📈 YC Partner": "What is your retention after Day 1? Oh, zero? Next.",
+          "👼 Mentor": "Have you considered talking to a single human customer first?"
+        },
+        pivot_aud: "Target B2B corporate operations managers instead of random internet users.",
+        pivot_price: "Charge $99/month per seat instead of giving it away for free.",
+        pivot_cut: "Remove all useless AI buzzwords and focus on 1 core workflow.",
+        pivot_gtm: "Direct cold outreach to Mid-Market operations directors."
+      },
+      ml: {
+        survival: 4,
+        headline: "ഗോപാലകൃഷ്ണൻ സ്റ്റൈലിൽ പൂട്ടിക്കെട്ടി!",
+        verdict: "കസ്റ്റമേഴ്സ് ആരും ഇത് തിരിഞ്ഞുപോലും നോക്കിയില്ല. ഫണ്ട് മൊത്തം വെള്ളത്തിലായി!",
+        startup_name: "പൂട്ടിപ്പോയ കമ്പനി Ltd",
+        time_alive: "14 മാസം",
+        cause: "ആവശ്യമില്ലാത്ത പ്രശ്നത്തിന് കോടികൾ കളഞ്ഞ് പരിഹാരം ഉണ്ടാക്കി!",
+        burned: "₹1.5 കോടി",
+        pivot: "ചായക്കട ഫ്രാഞ്ചൈസി",
+        rev_val: "₹150",
+        team_ceo: "ലിങ്ക്ഡ്ഇൻ തള്ളുകാരൻ",
+        team_cto: "യൂട്യൂബിൽ നിന്ന് റിയാക്ട് പഠിച്ചവൻ",
+        team_mkt: "നാളെ വരും വൻ സർപ്രൈസ് എന്ന് ദിവസവും പോസ്റ്റിടുന്നവൻ",
+        team_sales: "കമ്പനി ഉടമയുടെ അമ്മ",
+        review: "ഞാൻ ഇത് ആപ്പ് ഇൻസ്റ്റാൾ ചെയ്തു... ജീവിതത്തിലെ 2 മിനിറ്റ് നഷ്ടപ്പെട്ടു! ഫ്രീ ട്രയൽ വരെ തിരിച്ചു പണം ചോദിച്ചു!",
+        reviewer: "കണ്ണീരണിഞ്ഞ കസ്റ്റമർ",
+        red_title: "ഈ സ്റ്റാർട്ടപ്പ് നാട്ടിൽ വൻ വിജയമാകുമോ?",
+        reddit1: "ഇതിനുവേണ്ടിയാണോ ചേട്ടാ എഞ്ചിനീയറിംഗ് പഠിച്ചത്?",
+        reddit2: "എന്റെ വീട്ടിലെ ആടിന് ഇതിനേക്കാൾ ബിസിനസ് ഐഡിയ ഉണ്ട്!",
+        tweet_handle: "@KeralaTrolls",
+        tweet_body: "18 മാസം കഷ്ടപ്പെട്ട് ഉണ്ടാക്കിയ സാധനം ഗൂഗിൾ അടുത്ത ചൊവ്വാഴ്ച ഫ്രീയായി ഇറക്കുന്നു! 😭",
+        tc_kicker: "പ്രത്യേക വാർത്ത · പൂട്ടിപ്പോയി",
+        tc_headline: "₹2 കോടി ഫണ്ട് ഒപ്പിച്ചു; 3 ആഴ്ച കൊണ്ട് പൂട്ടിക്കെട്ടി മലയാളി സ്റ്റാർട്ടപ്പ്!",
+        tc_sub: "കസ്റ്റമേഴ്സ് ആരെങ്കിലും കാശ് തരുമോ എന്ന് ചോദിക്കാൻ മറന്നുപോയെന്ന് ഫൗണ്ടർ!",
+        email_from: "investors@kerala-vcs.com",
+        email_subject: "സ്റ്റാർട്ടപ്പ് റിജക്ഷൻ ലെറ്റർ",
+        vc_body: "ബഹുമാനപ്പെട്ട ഫൗണ്ടർ,<br><br>നിങ്ങളുടെ പ്രൊജക്റ്റ് കണ്ടു. ഇതിലും ഭേദം ലോട്ടറി എടുക്കുന്നതാണ്.<br><br>സ്നേഹത്തോടെ,<br><b>ഏതൊരു ഇൻവെസ്റ്ററും</b>",
+        linkedin: "വളരെ വിഷമത്തോടെ ഞങ്ങളുടെ സ്റ്റാർട്ടപ്പ് പൂട്ടാൻ തീരുമാനിച്ചു. കാശ് പോയെങ്കിലും ഒരുപാട് അനുഭവങ്ങൾ കിട്ടി! 🙏❤️🚀 #StartupMalayali #FailFast",
+        personas: {
+          "💀 Brutal VC": "ഇതിന് കാശ് തരുന്നതിലും നല്ലത് കായലിൽ എറിയുന്നതാണ്!",
+          "😂 Reddit": "വീട്ടുകാർ അറിഞ്ഞാൽ കിളറുകൾ ബാക്കിയുണ്ടാകില്ല!",
+          "🦈 Shark Tank": "ഇതൊരു ബിസിനസ് അല്ല, വെറും പ്രഹസനമാണ്! സോറി, ഞാൻ പിന്മാറുന്നു.",
+          "📈 YC Partner": "ഒരു മാസം കഴിഞ്ഞപ്പോൾ എത്ര പേരുണ്ട്? വട്ടപ്പൂജയോ? അടുത്ത ആൾ വരൂ!",
+          "👼 Mentor": "ആദ്യം ഏതെങ്കിലും ഒരു കസ്റ്റമറോട് സംസാരിച്ചു നോക്കൂ തമ്പുരാനേ!"
+        },
+        pivot_aud: "സാധാരണക്കാരെ വിട്ട് B2B കമ്പനികളെ ലക്ഷ്യമിടൂ.",
+        pivot_price: "ഫ്രീ കൊടുക്കാതെ മാസം ₹2,000 വച്ച് ചാർജ് ചെയ്യൂ.",
+        pivot_cut: "ആവശ്യമില്ലാത്ത AI തള്ളുകൾ ഒഴിവാക്കി ഒരു കാര്യം കൃത്യമായി ചെയ്യൂ.",
+        pivot_gtm: "കമ്പനി എംഡിമാർക്ക് നേരിട്ട് ഇമെയിൽ അയക്കൂ."
+      }
+    };
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      document.getElementById('langModal').style.display = 'none';
+
+      // Toggle button active states
+      const btnEn = document.getElementById('btn-en');
+      const btnMl = document.getElementById('btn-ml');
+      if (btnEn) btnEn.classList.toggle('active', lang === 'en');
+      if (btnMl) btnMl.classList.toggle('active', lang === 'ml');
+
+      // Render UI labels safely
+      const d = DICT[lang];
+      if (document.getElementById('ui-title')) document.getElementById('ui-title').innerHTML = d.title;
+      if (document.getElementById('ui-subtitle')) document.getElementById('ui-subtitle').innerText = d.subtitle;
+      if (document.getElementById('ui-label')) document.getElementById('ui-label').innerText = d.label;
+      if (document.getElementById('ideaInput')) document.getElementById('ideaInput').placeholder = d.placeholder;
+      if (document.getElementById('ui-examples-title')) document.getElementById('ui-examples-title').innerText = d.examplesTitle;
+      if (document.getElementById('ui-btn-text')) document.getElementById('ui-btn-text').innerText = d.btnText;
+      if (document.getElementById('sealTxt')) document.getElementById('sealTxt').innerHTML = d.sealTxt;
+      if (document.getElementById('k-died')) document.getElementById('k-died').innerText = d.kDied;
+      if (document.getElementById('k-cause')) document.getElementById('k-cause').innerText = d.kCause;
+      if (document.getElementById('k-burned')) document.getElementById('k-burned').innerText = d.kBurned;
+      if (document.getElementById('k-pivot')) document.getElementById('k-pivot').innerText = d.kPivot;
+      if (document.getElementById('lbl-burn')) document.getElementById('lbl-burn').innerText = d.lblBurn;
+      if (document.getElementById('lbl-rev')) document.getElementById('lbl-rev').innerText = d.lblRev;
+
+      // Footer text update
+      const footer = document.querySelector('footer p');
+      if (footer) footer.innerText = d.footerText;
+
+      // Render Example Pills (2 rows of 3 pills each)
+      const pContainer = document.getElementById('pillsContainer');
+      if (pContainer) {
+        pContainer.innerHTML = d.examples.slice(0, 6).map(ex => `<div class="pill" onclick="useExample('${ex.replace(/'/g, "\\'")}')">${ex}</div>`).join('');
+      }
+
+      // If results are showing, refresh results in current lang
+      if (currentData) {
+        renderResults(MOCK_ROASTS[lang]);
+      }
+    }
+
+    function useExample(txt) {
+      const input = document.getElementById('ideaInput');
+      if (input) input.value = txt;
+    }
+
+    let loadingInterval = null;
+
+    async function killStartup() {
+      const ideaEl = document.getElementById('ideaInput');
+      const idea = ideaEl ? ideaEl.value.trim() : '';
+      if (!idea) {
+        alert(currentLang === 'ml' ? "ദയവായി ഒരു ഐഡിയ എഴുതൂ!" : "Please write a startup idea first!");
+        return;
+      }
+
+      const killBtn = document.getElementById('killBtn');
+      if (killBtn) killBtn.disabled = true;
+      document.getElementById('results').style.display = 'none';
+      document.getElementById('loadingCard').style.display = 'block';
+
+      // Rotate loading messages
+      const msgs = DICT[currentLang].loadingMsgs;
+      let idx = 0;
+      const msgEl = document.getElementById('loadingMsg');
+      if (msgEl) msgEl.innerText = msgs[0];
+      loadingInterval = setInterval(() => {
+        idx = (idx + 1) % msgs.length;
+        if (msgEl) msgEl.innerText = msgs[idx];
+      }, 1200);
+
+      // Simulate AI processing delay for dramatic effect
+      setTimeout(() => {
+        clearInterval(loadingInterval);
+        document.getElementById('loadingCard').style.display = 'none';
+        if (killBtn) killBtn.disabled = false;
+        currentData = MOCK_ROASTS[currentLang];
+        renderResults(currentData);
+      }, 3200);
+    }
+
+    function renderResults(d) {
+      document.getElementById('results').style.display = 'block';
+
+      // Gauge Meter
+      const pct = d.survival;
+      document.getElementById('gaugeVal').innerText = pct + '%';
+      const offset = 283 - (283 * (pct / 100));
+      document.getElementById('gaugeCircle').style.strokeDashoffset = offset;
+      document.getElementById('verdictHeadline').innerText = d.headline;
+      document.getElementById('verdictSub').innerText = d.verdict;
+
+      // Certificate matching exact attached image design
+      document.getElementById('certName').innerText = d.startup_name;
+      document.getElementById('certCause').innerText = d.cause;
+      document.getElementById('certTime').innerText = d.time_alive;
+      document.getElementById('certBurn').innerText = d.burned;
+      document.getElementById('certPivot').innerText = d.pivot;
+
+      // Burn & Rev
+      document.getElementById('val-burn').innerText = d.burned;
+      document.getElementById('val-rev').innerText = d.rev_val;
+
+      // Team
+      document.getElementById('team-ceo').innerText = d.team_ceo;
+      document.getElementById('team-cto').innerText = d.team_cto;
+      document.getElementById('team-mkt').innerText = d.team_mkt;
+      document.getElementById('team-sales').innerText = d.team_sales;
+
+      // Reviews & Reddit
+      document.getElementById('reviewText').innerText = `"${d.review}"`;
+      document.getElementById('reviewerName').innerText = `— ${d.reviewer}`;
+      if (document.getElementById('redPostTitle')) document.getElementById('redPostTitle').innerText = d.red_title;
+      document.getElementById('red-c1').innerText = `"${d.reddit1}"`;
+      document.getElementById('red-c2').innerText = `"${d.reddit2}"`;
+
+      // Twitter / X
+      document.getElementById('tweetHandle').innerText = d.tweet_handle;
+      document.getElementById('tweetBody').innerText = `"${d.tweet_body}"`;
+
+      // TechCrunch & Email
+      document.getElementById('tcKicker').innerText = d.tc_kicker;
+      document.getElementById('tcHeadline').innerText = d.tc_headline;
+      document.getElementById('tcSub').innerText = d.tc_sub;
+      if (document.getElementById('emailFrom')) document.getElementById('emailFrom').innerText = d.email_from;
+      if (document.getElementById('emailSubject')) document.getElementById('emailSubject').innerText = d.email_subject;
+      document.getElementById('vcBody').innerHTML = d.vc_body;
+      document.getElementById('linkedinPost').innerText = d.linkedin;
+
+      // Personas
+      const pKeys = Object.keys(d.personas);
+      const tabsEl = document.getElementById('personaTabs');
+      if (tabsEl) {
+        tabsEl.innerHTML = pKeys.map((key, i) =>
+          `<button class="persona-tab ${i === 0 ? 'active' : ''}" onclick="selectPersona('${key}', this)">${key}</button>`
+        ).join('');
+      }
+      selectPersona(pKeys[0]);
+
+      // Pivot
+      document.getElementById('p-aud').innerText = d.pivot_aud;
+      document.getElementById('p-price').innerText = d.pivot_price;
+      document.getElementById('p-cut').innerText = d.pivot_cut;
+      document.getElementById('p-gtm').innerText = d.pivot_gtm;
+
+      document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function selectPersona(key, btnEl) {
+      const allTabs = document.querySelectorAll('.persona-tab');
+      allTabs.forEach(t => t.classList.remove('active'));
+      if (btnEl) btnEl.classList.add('active');
+
+      const quote = MOCK_ROASTS[currentLang].personas[key] || "I'm out.";
+      const quoteEl = document.getElementById('personaQuote');
+      if (quoteEl) quoteEl.innerText = `"${quote}"`;
+    }
+
+    function downloadCert() {
+      const el = document.getElementById('certCard');
+      const btn = document.getElementById('dlCertBtn');
+      if (btn) btn.style.visibility = 'hidden';
+
+      html2canvas(el, { backgroundColor: '#B5EAD7', scale: 2 }).then(canvas => {
+        if (btn) btn.style.visibility = 'visible';
+        const link = document.createElement('a');
+        link.download = 'startup-death-certificate.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      }).catch(err => {
+        if (btn) btn.style.visibility = 'visible';
+        console.error(err);
+      });
+    }
+
+    function copyRoast() {
+      const name = document.getElementById('certName') ? document.getElementById('certName').innerText : '';
+      const chance = document.getElementById('gaugeVal') ? document.getElementById('gaugeVal').innerText : '';
+      const cause = document.getElementById('certCause') ? document.getElementById('certCause').innerText : '';
+      const burned = document.getElementById('certBurn') ? document.getElementById('certBurn').innerText : '';
+      const tweet = document.getElementById('tweetBody') ? document.getElementById('tweetBody').innerText : '';
+
+      const text = `💀 STARTUP AUTOPSY REPORT\nName: ${name}\nSurvival Chance: ${chance}\nCause of Death: ${cause}\nMoney Burned: ${burned}\n\nRoast: ${tweet}\n\n— via Startup Graveyard`;
+      navigator.clipboard.writeText(text);
+      alert(currentLang === 'ml' ? "റിപ്പോർട്ട് കോപ്പി ചെയ്തു! 📋" : "Roast report copied to clipboard! 📋");
+    }
+
+    function resetApp() {
+      document.getElementById('results').style.display = 'none';
+      const ideaEl = document.getElementById('ideaInput');
+      if (ideaEl) ideaEl.value = '';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Keyboard Enter Trigger
+    const ideaTextarea = document.getElementById('ideaInput');
+    if (ideaTextarea) {
+      ideaTextarea.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) killStartup();
+      });
+    }
+
+    // Initialize Default Language
+    setLanguage('en');
+  </script>
+
+</body>
+
+</html>
