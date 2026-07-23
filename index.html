@@ -434,12 +434,14 @@
 
     /* 2. MATCHING ATTACHED IMAGE DEATH CERTIFICATE */
     .cert-card-attached {
-      background: var(--mint);
+      background: #FDF9EC;
       border: 3px solid var(--ink);
-      border-radius: 22px;
-      padding: 24px;
+      border-radius: 12px;
+      padding: 30px 24px;
       box-shadow: var(--shadow-lg);
       position: relative;
+      background-image: radial-gradient(#d3c9b3 1px, transparent 1px);
+      background-size: 20px 20px;
     }
 
     .cert-coffin-icon {
@@ -527,23 +529,23 @@
     /* ROTATED FAILURE SEAL ON CERTIFICATE */
     .failure-seal {
       position: absolute;
-      top: 25px;
-      right: 25px;
-      width: 105px;
-      height: 105px;
-      border: 4px dashed var(--coral);
+      top: 15px;
+      right: 15px;
+      width: 100px;
+      height: 100px;
+      border: 3px dashed #B91C1C;
       border-radius: 50%;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      color: var(--coral);
+      color: #B91C1C;
       font-family: var(--font-heading);
-      font-weight: 700;
+      font-weight: 800;
       text-align: center;
-      transform: rotate(-18deg);
-      background: rgba(255, 107, 94, 0.1);
-      box-shadow: 0 0 0 3px var(--mint), 0 0 0 6px var(--coral);
+      transform: rotate(-15deg);
+      background: rgba(185, 28, 28, 0.15);
+      box-shadow: 0 0 0 2px #FDF9EC, 0 0 0 5px #B91C1C;
       pointer-events: none;
       line-height: 1.1;
       text-transform: uppercase;
@@ -1178,7 +1180,6 @@
       <div class="brand">
         <div class="logo-icon">💀</div>
         <div class="logo-word mono">KASTAM.ai</div>
-        <span style="font-size: 9px; opacity: 0.5; margin-left: 6px;" class="mono" id="versionBadge">v2026.07.23-v2</span>
       </div>
       <div class="lang-switch">
         <button class="lang-btn active" id="btn-en" onclick="setLanguage('en')">EN</button>
@@ -1269,11 +1270,8 @@
             </div>
           </div>
 
-          <button class="cert-attached-dl-btn" id="dlCertBtn" onclick="downloadCert()">
-            <span class="btn-icon-badge">⬇️</span>
-            <span>Download Death Certificate</span>
-          </button>
         </div>
+
 
         <!-- 3. BURN RATE VISUALIZER -->
         <div class="col-6 burn-card card">
@@ -1509,7 +1507,7 @@
 
     <!-- BOTTOM FOOTER UPDATED EXACTLY AS REQUESTED -->
     <footer>
-      <p>Your idea is safe here. Your ego? No promises.</p>
+      <p>Your idea is safe here. Your ego? No promises. <span style="font-size: 10px; opacity: 0.4; margin-left: 8px;" class="mono" id="versionBadge">v2026.07.23-v2</span></p>
     </footer>
 
   </div>
@@ -1541,9 +1539,7 @@
           "Uber for pigeons",
           "AI therapist for potatoes",
           "Tinder for introverts",
-          "Netflix for PDFs",
-          "Spotify for dogs",
-          "SaaS for ghosts"
+          "Netflix for PDFs"
         ],
         sealTxt: "OFFICIALLY<br>FAILED",
         kDied: "Time Alive", kCause: "Cause of Death", kBurned: "Money Burned", kPivot: "Final Pivot",
@@ -1571,9 +1567,7 @@
           "പ്രാവിനുള്ള Uber",
           "ഉരുളക്കിഴങ്ങിന് AI തെറാപ്പി",
           "പട്ടിക്ക് Spotify",
-          "മൾട്ടിപ്ലെയർ ലുഡോ SaaS",
-          "പ്രേതങ്ങൾക്ക് Tinder",
-          "ചായ കുടിക്കാൻ കോപൈലറ്റ്"
+          "പ്രേതങ്ങൾക്ക് Tinder"
         ],
         sealTxt: "പൂട്ടിപ്പോയി<br>വട്ടപ്പൂജ ☠️",
         kDied: "ആയുസ്സ്", kCause: "കാരണം", kBurned: "നഷ്ടപ്പെടുത്തിയത്", kPivot: "അവസാന തന്ത്രം",
