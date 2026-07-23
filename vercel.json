@@ -1,0 +1,8 @@
+{
+  "name": "kastam-ai",
+  "functions": {
+    "api/roast.js": {
+      "runtime": "nodejs22.x"
+    }
+  }
+}

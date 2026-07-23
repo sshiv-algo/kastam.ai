@@ -4,12 +4,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>💀 Startup Graveyard | Find out how your startup dies</title>
+  <title>💀 Kastam.ai | Find out how your startup dies</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link
     href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manjari:wght@400;700&display=swap"
     rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js?v=20260723-v2"></script>
   <style>
     :root {
       --ink: #141414;
@@ -1175,6 +1178,7 @@
       <div class="brand">
         <div class="logo-icon">💀</div>
         <div class="logo-word mono">KASTAM.ai</div>
+        <span style="font-size: 9px; opacity: 0.5; margin-left: 6px;" class="mono" id="versionBadge">v2026.07.23-v2</span>
       </div>
       <div class="lang-switch">
         <button class="lang-btn active" id="btn-en" onclick="setLanguage('en')">EN</button>
@@ -1700,7 +1704,7 @@
 
       // If results are showing, refresh results in current lang
       if (currentData) {
-        renderResults(MOCK_ROASTS[lang]);
+        renderResults(currentData);
       }
     }
 
@@ -1734,14 +1738,40 @@
         if (msgEl) msgEl.innerText = msgs[idx];
       }, 1200);
 
-      // Simulate AI processing delay for dramatic effect
-      setTimeout(() => {
+      // Fetch real roast from Gemini via /api/roast
+      try {
+        const response = await fetch('/api/roast', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ idea, lang: currentLang, tone: 'savage' })
+        });
+
         clearInterval(loadingInterval);
         document.getElementById('loadingCard').style.display = 'none';
         if (killBtn) killBtn.disabled = false;
-        currentData = MOCK_ROASTS[currentLang];
+
+        if (!response.ok) {
+          const errData = await response.json().catch(() => ({}));
+          alert('Roast failed: ' + (errData.error || 'Server error ' + response.status));
+          return;
+        }
+
+        let roastData;
+        try {
+          roastData = await response.json();
+        } catch (parseErr) {
+          alert('Roast failed: The AI returned something unexpected. Try again!');
+          return;
+        }
+
+        currentData = roastData;
         renderResults(currentData);
-      }, 3200);
+      } catch (networkErr) {
+        clearInterval(loadingInterval);
+        document.getElementById('loadingCard').style.display = 'none';
+        if (killBtn) killBtn.disabled = false;
+        alert('Network error: Could not reach the roast server. Check your connection and try again.');
+      }
     }
 
     function renderResults(d) {
@@ -1816,7 +1846,7 @@
       allTabs.forEach(t => t.classList.remove('active'));
       if (btnEl) btnEl.classList.add('active');
 
-      const quote = MOCK_ROASTS[currentLang].personas[key] || "I'm out.";
+      const quote = (currentData && currentData.personas && currentData.personas[key]) || "I'm out.";
       const quoteEl = document.getElementById('personaQuote');
       if (quoteEl) quoteEl.innerText = `"${quote}"`;
     }
@@ -1845,7 +1875,7 @@
       const burned = document.getElementById('certBurn') ? document.getElementById('certBurn').innerText : '';
       const tweet = document.getElementById('tweetBody') ? document.getElementById('tweetBody').innerText : '';
 
-      const text = `💀 STARTUP AUTOPSY REPORT\nName: ${name}\nSurvival Chance: ${chance}\nCause of Death: ${cause}\nMoney Burned: ${burned}\n\nRoast: ${tweet}\n\n— via Startup Graveyard`;
+      const text = `💀 STARTUP AUTOPSY REPORT\nName: ${name}\nSurvival Chance: ${chance}\nCause of Death: ${cause}\nMoney Burned: ${burned}\n\nRoast: ${tweet}\n\n— via Kastam.ai`;
       navigator.clipboard.writeText(text);
       alert(currentLang === 'ml' ? "റിപ്പോർട്ട് കോപ്പി ചെയ്തു! 📋" : "Roast report copied to clipboard! 📋");
     }
@@ -1867,6 +1897,7 @@
 
     // Initialize Default Language
     setLanguage('en');
+    console.log("%c💀 Kastam.ai build: 2026-07-23-v2 (Live Gemini API mode)", "color: #FF6B5E; font-weight: bold; font-size: 14px;");
   </script>
 
 </body>
