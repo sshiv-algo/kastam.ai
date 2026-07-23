@@ -440,8 +440,6 @@
       padding: 30px 24px;
       box-shadow: var(--shadow-lg);
       position: relative;
-      background-image: radial-gradient(#d3c9b3 1px, transparent 1px);
-      background-size: 20px 20px;
     }
 
     .cert-coffin-icon {
@@ -1241,7 +1239,8 @@
         </div>
 
         <!-- 2. DEATH CERTIFICATE (MATCHING ATTACHED IMAGE SPECIFICATION) -->
-        <div class="col-4 cert-card-attached" id="certCard">
+        <div class="col-4" style="display: flex; flex-direction: column;">
+          <div class="cert-card-attached" id="certCard">
           <div class="failure-seal" id="failureSeal">
             <div class="seal-icon">☠️</div>
             <div class="seal-txt" id="sealTxt">OFFICIALLY<br>FAILED</div>
@@ -1269,8 +1268,14 @@
               <span class="cert-attached-val" id="certPivot">Blockchain Parking Permits</span>
             </div>
           </div>
-
         </div>
+
+        <!-- DOWNLOAD BUTTON MOVED UNDER THE CERTIFICATE -->
+        <button class="cert-attached-dl-btn" id="dlCertBtn" onclick="downloadCert()">
+          <span class="btn-icon-badge">⬇️</span>
+          <span>Download Death Certificate</span>
+        </button>
+      </div>
 
 
         <!-- 3. BURN RATE VISUALIZER -->
@@ -1498,8 +1503,7 @@
       </div>
 
       <!-- ACTION BUTTONS -->
-      <div class="action-bar">
-        <button class="action-btn primary" onclick="downloadCert()">⬇️ Download Death Certificate</button>
+      <div class="action-bar" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
         <button class="action-btn" onclick="copyRoast()">📋 Copy Roast Report</button>
         <button class="action-btn" onclick="resetApp()">⚰️ Bury Another Startup</button>
       </div>
@@ -1721,6 +1725,11 @@
       if (killBtn) killBtn.disabled = true;
       document.getElementById('results').style.display = 'none';
       document.getElementById('loadingCard').style.display = 'block';
+
+      setTimeout(() => {
+        const loadCard = document.getElementById('loadingCard');
+        if (loadCard) loadCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 50);
 
       // Rotate loading messages
       const msgs = DICT[currentLang].loadingMsgs;
