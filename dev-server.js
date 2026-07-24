@@ -127,7 +127,7 @@ async function handleRoast(body) {
     }
   };
 
-  const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=${GEMINI_API_KEY}`;
+  const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`;
 
   const res = await fetch(apiUrl, {
     method: 'POST',
@@ -136,8 +136,24 @@ async function handleRoast(body) {
   });
 
   if (!res.ok) {
-    const txt = await res.text();
-    throw new Error(`Gemini API error ${res.status}: ${txt}`);
+    let errBody;
+    try { errBody = await res.json(); } catch { errBody = null; }
+    const status = res.status;
+    const errMsg = errBody?.error?.message || 'Unknown Gemini API error';
+
+    if (status === 429) {
+      // Extract retry delay if present
+      const retryInfo = errBody?.error?.details?.find(d => d['@type']?.includes('RetryInfo'));
+      const retryDelay = retryInfo?.retryDelay ? retryInfo.retryDelay.replace('s', '') : null;
+      const waitMsg = retryDelay ? ` Please wait ${retryDelay} seconds and try again.` : ' Please try again in a moment.';
+      const rateLimitErr = new Error('Rate limit hit — too many requests on the free tier.' + waitMsg);
+      rateLimitErr.statusCode = 429;
+      throw rateLimitErr;
+    }
+
+    const apiErr = new Error(errMsg);
+    apiErr.statusCode = 502;
+    throw apiErr;
   }
 
   const data = await res.json();
@@ -180,7 +196,8 @@ const server = http.createServer(async (req, res) => {
         res.end(JSON.stringify(roast));
       } catch (err) {
         console.error('Roast error:', err.message);
-        res.writeHead(502, { 'Content-Type': 'application/json' });
+        const statusCode = err.statusCode || 502;
+        res.writeHead(statusCode, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify({ error: err.message }));
       }
     });

@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>💀 Kastam.ai | Find out how your startup dies</title>
+  <title>Kastam.ai | Find out how your startup dies</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link
     href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manjari:wght@400;700&display=swap"
@@ -13,6 +13,22 @@
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js?v=20260723-v2"></script>
+  <link rel="icon" type="image/svg+xml" href="/icon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#F9CD64">
+  <meta name="description" content="Find out how your startup dies before investors do. AI-powered brutal startup roast generator.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://trykastam.vercel.app/">
+  <meta property="og:title" content="Kastam.ai — Every startup dies. Find out how yours does.">
+  <meta property="og:description" content="Before investors reject you... let AI roast your delusion first.">
+  <meta property="og:image" content="https://trykastam.vercel.app/og-banner.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kastam.ai — Every startup dies. Find out how yours does.">
+  <meta name="twitter:description" content="Before investors reject you... let AI roast your delusion first.">
+  <meta name="twitter:image" content="https://trykastam.vercel.app/og-banner.png">
   <style>
     :root {
       --ink: #141414;
@@ -97,6 +113,20 @@
       font-weight: 700;
       font-size: 18px;
       letter-spacing: -0.02em;
+    }
+
+    .mobile-logo {
+      display: none;
+    }
+
+    @media (max-width: 640px) {
+      .desktop-logo {
+        display: none;
+      }
+
+      .mobile-logo {
+        display: inline;
+      }
     }
 
     .lang-switch {
@@ -1176,8 +1206,9 @@
     <!-- TOPBAR -->
     <div class="topbar">
       <div class="brand">
-        <div class="logo-icon">💀</div>
-        <div class="logo-word mono">KASTAM.ai</div>
+        <div class="logo-icon"><img src="/icon.svg" alt="Kastam.ai" style="width:26px;height:26px;display:block;"></div>
+        <div class="logo-word mono"><span class="desktop-logo">Kastam.ai</span><span
+            class="mobile-logo">Kastam.ai</span></div>
       </div>
       <div class="lang-switch">
         <button class="lang-btn active" id="btn-en" onclick="setLanguage('en')">EN</button>
@@ -1241,41 +1272,41 @@
         <!-- 2. DEATH CERTIFICATE (MATCHING ATTACHED IMAGE SPECIFICATION) -->
         <div class="col-4" style="display: flex; flex-direction: column;">
           <div class="cert-card-attached" id="certCard">
-          <div class="failure-seal" id="failureSeal">
-            <div class="seal-icon">☠️</div>
-            <div class="seal-txt" id="sealTxt">OFFICIALLY<br>FAILED</div>
+            <div class="failure-seal" id="failureSeal">
+              <div class="seal-icon">☠️</div>
+              <div class="seal-txt" id="sealTxt">OFFICIALLY<br>FAILED</div>
+            </div>
+
+            <div class="cert-coffin-icon">⚰️</div>
+            <h2 class="cert-attached-title" id="certName">ParkSnark</h2>
+
+            <div class="cert-attached-rows">
+              <div class="cert-attached-row">
+                <span class="cert-attached-label" id="k-cause">Cause of Death</span>
+                <span class="cert-attached-val" id="certCause">Turned out 'community accountability' is just 'neighbors
+                  screaming at each other' with a UI.</span>
+              </div>
+              <div class="cert-attached-row">
+                <span class="cert-attached-label" id="k-died">Time Alive</span>
+                <span class="cert-attached-val" id="certTime">14 months</span>
+              </div>
+              <div class="cert-attached-row">
+                <span class="cert-attached-label" id="k-burned">Money Burned</span>
+                <span class="cert-attached-val" id="certBurn">$4.2M</span>
+              </div>
+              <div class="cert-attached-row">
+                <span class="cert-attached-label" id="k-pivot">Final Pivot</span>
+                <span class="cert-attached-val" id="certPivot">Blockchain Parking Permits</span>
+              </div>
+            </div>
           </div>
 
-          <div class="cert-coffin-icon">⚰️</div>
-          <h2 class="cert-attached-title" id="certName">ParkSnark</h2>
-
-          <div class="cert-attached-rows">
-            <div class="cert-attached-row">
-              <span class="cert-attached-label" id="k-cause">Cause of Death</span>
-              <span class="cert-attached-val" id="certCause">Turned out 'community accountability' is just 'neighbors
-                screaming at each other' with a UI.</span>
-            </div>
-            <div class="cert-attached-row">
-              <span class="cert-attached-label" id="k-died">Time Alive</span>
-              <span class="cert-attached-val" id="certTime">14 months</span>
-            </div>
-            <div class="cert-attached-row">
-              <span class="cert-attached-label" id="k-burned">Money Burned</span>
-              <span class="cert-attached-val" id="certBurn">$4.2M</span>
-            </div>
-            <div class="cert-attached-row">
-              <span class="cert-attached-label" id="k-pivot">Final Pivot</span>
-              <span class="cert-attached-val" id="certPivot">Blockchain Parking Permits</span>
-            </div>
-          </div>
+          <!-- DOWNLOAD BUTTON MOVED UNDER THE CERTIFICATE -->
+          <button class="cert-attached-dl-btn" id="dlCertBtn" onclick="downloadCert()">
+            <span class="btn-icon-badge">⬇️</span>
+            <span>Download Death Certificate</span>
+          </button>
         </div>
-
-        <!-- DOWNLOAD BUTTON MOVED UNDER THE CERTIFICATE -->
-        <button class="cert-attached-dl-btn" id="dlCertBtn" onclick="downloadCert()">
-          <span class="btn-icon-badge">⬇️</span>
-          <span>Download Death Certificate</span>
-        </button>
-      </div>
 
 
         <!-- 3. BURN RATE VISUALIZER -->
@@ -1374,7 +1405,7 @@
         <!-- 7. TWITTER / X CARD (AUTHENTIC TWITTER UI CHARACTER) -->
         <div class="col-4 twitter-card card">
           <div class="card-header">
-            <span>🕮 TWITTER / X ROAST</span>
+            <span>🐦 TWITTER / X ROAST</span>
             <span class="mono">VIRAL TWEET</span>
           </div>
           <div class="card-body">
@@ -1503,20 +1534,40 @@
       </div>
 
       <!-- ACTION BUTTONS -->
-      <div class="action-bar" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+      <div class="action-bar"
+        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px;">
         <button class="action-btn" onclick="copyRoast()">📋 Copy Roast Report</button>
+        <button class="action-btn" onclick="killStartup()">🎲 Reroll</button>
         <button class="action-btn" onclick="resetApp()">⚰️ Bury Another Startup</button>
       </div>
     </div>
 
     <!-- BOTTOM FOOTER UPDATED EXACTLY AS REQUESTED -->
     <footer>
-      <p>Your idea is safe here. Your ego? No promises. <span style="font-size: 10px; opacity: 0.4; margin-left: 8px;" class="mono" id="versionBadge">v2026.07.23-v2</span></p>
+      <p>Your idea is safe here. Your ego? No promises. <span style="font-size: 10px; opacity: 0.4; margin-left: 8px;"
+          class="mono" id="versionBadge">v2026.07.23-v2</span></p>
     </footer>
 
   </div>
 
+  <!-- TOAST COMPONENT -->
+  <div id="toast"
+    style="display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: var(--ink); color: var(--white); padding: 12px 24px; border-radius: 8px; box-shadow: var(--shadow-lg); z-index: 1000; transition: opacity 0.3s; opacity: 0; pointer-events: none; font-family: var(--font-body); font-weight: 600;">
+  </div>
+
   <script>
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      if (!toast) return;
+      toast.innerText = msg;
+      toast.style.display = 'block';
+      setTimeout(() => { toast.style.opacity = '1'; }, 10);
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        setTimeout(() => { toast.style.display = 'none'; }, 300);
+      }, 2000);
+    }
+
     let currentLang = 'en';
     let currentData = null;
 
@@ -1665,6 +1716,7 @@
     };
 
     function setLanguage(lang) {
+      localStorage.setItem('kastam-lang', lang);
       currentLang = lang;
       document.getElementById('langModal').style.display = 'none';
 
@@ -1717,7 +1769,7 @@
       const ideaEl = document.getElementById('ideaInput');
       const idea = ideaEl ? ideaEl.value.trim() : '';
       if (!idea) {
-        alert(currentLang === 'ml' ? "ദയവായി ഒരു ഐഡിയ എഴുതൂ!" : "Please write a startup idea first!");
+        showToast(currentLang === 'ml' ? "ദയവായി ഒരു ഐഡിയ എഴുതൂ!" : "Please write a startup idea first!");
         return;
       }
 
@@ -1755,7 +1807,7 @@
 
         if (!response.ok) {
           const errData = await response.json().catch(() => ({}));
-          alert('Roast failed: ' + (errData.error || 'Server error ' + response.status));
+          showToast('Roast failed: ' + (errData.error || 'Server error ' + response.status));
           return;
         }
 
@@ -1763,7 +1815,7 @@
         try {
           roastData = await response.json();
         } catch (parseErr) {
-          alert('Roast failed: The AI returned something unexpected. Try again!');
+          showToast('Roast failed: The AI returned something unexpected. Try again!');
           return;
         }
 
@@ -1773,7 +1825,7 @@
         clearInterval(loadingInterval);
         document.getElementById('loadingCard').style.display = 'none';
         if (killBtn) killBtn.disabled = false;
-        alert('Network error: Could not reach the roast server. Check your connection and try again.');
+        showToast('Network error: Could not reach the roast server. Check your connection and try again.');
       }
     }
 
@@ -1833,7 +1885,12 @@
           `<button class="persona-tab ${i === 0 ? 'active' : ''}" onclick="selectPersona('${key}', this)">${key}</button>`
         ).join('');
       }
-      selectPersona(pKeys[0]);
+      if (tabsEl) {
+        selectPersona(pKeys[0], tabsEl.firstElementChild);
+        tabsEl.scrollLeft = 0;
+      } else {
+        selectPersona(pKeys[0]);
+      }
 
       // Pivot
       document.getElementById('p-aud').innerText = d.pivot_aud;
@@ -1861,10 +1918,33 @@
 
       html2canvas(el, { backgroundColor: '#B5EAD7', scale: 2 }).then(canvas => {
         if (btn) btn.style.visibility = 'visible';
-        const link = document.createElement('a');
-        link.download = 'startup-death-certificate.png';
-        link.href = canvas.toDataURL('image/png');
-        link.click();
+
+        if (navigator.share && navigator.canShare) {
+          canvas.toBlob(async (blob) => {
+            const file = new File([blob], 'startup-death-certificate.png', { type: 'image/png' });
+            if (navigator.canShare({ files: [file] })) {
+              try {
+                await navigator.share({
+                  files: [file],
+                  title: 'Startup Death Certificate'
+                });
+                return;
+              } catch (err) {
+                console.error('Share failed', err);
+              }
+            }
+            fallbackDownload(canvas);
+          }, 'image/png');
+        } else {
+          fallbackDownload(canvas);
+        }
+
+        function fallbackDownload(cvs) {
+          const link = document.createElement('a');
+          link.download = 'startup-death-certificate.png';
+          link.href = cvs.toDataURL('image/png');
+          link.click();
+        }
       }).catch(err => {
         if (btn) btn.style.visibility = 'visible';
         console.error(err);
@@ -1880,7 +1960,7 @@
 
       const text = `💀 STARTUP AUTOPSY REPORT\nName: ${name}\nSurvival Chance: ${chance}\nCause of Death: ${cause}\nMoney Burned: ${burned}\n\nRoast: ${tweet}\n\n— via Kastam.ai`;
       navigator.clipboard.writeText(text);
-      alert(currentLang === 'ml' ? "റിപ്പോർട്ട് കോപ്പി ചെയ്തു! 📋" : "Roast report copied to clipboard! 📋");
+      showToast(currentLang === 'ml' ? "റിപ്പോർട്ട് കോപ്പി ചെയ്തു! 📋" : "Roast report copied to clipboard! 📋");
     }
 
     function resetApp() {
@@ -1898,8 +1978,12 @@
       });
     }
 
-    // Initialize Default Language
-    setLanguage('en');
+    // Initialize Default Language (persist across sessions)
+    const savedLang = localStorage.getItem('kastam-lang');
+    setLanguage(savedLang || 'en');
+    if (savedLang) {
+      document.getElementById('langModal').style.display = 'none';
+    }
     console.log("%c💀 Kastam.ai build: 2026-07-23-v2 (Live Gemini API mode)", "color: #FF6B5E; font-weight: bold; font-size: 14px;");
   </script>
 
