@@ -6,8 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kastam.ai | Find out how your startup dies</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manjari:wght@400;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800;900&family=Poppins:wght@700;800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manjari:wght@400;700&display=swap"
     rel="stylesheet">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
@@ -19,7 +20,8 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="manifest" href="/manifest.json">
   <meta name="theme-color" content="#F9CD64">
-  <meta name="description" content="Find out how your startup dies before investors do. AI-powered brutal startup roast generator.">
+  <meta name="description"
+    content="Find out how your startup dies before investors do. AI-powered brutal startup roast generator.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://trykastam.vercel.app/">
   <meta property="og:title" content="Kastam.ai — Every startup dies. Find out how yours does.">
@@ -48,6 +50,53 @@
       --shadow-lg: 6px 6px 0 var(--ink);
       --font-heading: 'Space Mono', monospace;
       --font-body: 'Plus Jakarta Sans', 'Manjari', sans-serif;
+      --font-google: 'Product Sans', 'Google Sans', 'Outfit', 'Poppins', sans-serif;
+    }
+
+    .google-font {
+      font-family: var(--font-google);
+    }
+
+    .g-blue {
+      color: #4285F4;
+    }
+
+    .g-red {
+      color: #EA4335;
+    }
+
+    .g-yellow {
+      color: #FBBC05;
+    }
+
+    .g-green {
+      color: #34A853;
+    }
+
+    .kastam-footer-title {
+      font-family: var(--font-google);
+      font-weight: 800;
+      font-size: clamp(3.5rem, 15vw, 9rem);
+      line-height: 1;
+      letter-spacing: -0.03em;
+      text-align: center;
+      margin: 50px auto 10px auto;
+      user-select: none;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.02em;
+    }
+
+    .kastam-footer-title span {
+      display: inline-block;
+      transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      cursor: default;
+    }
+
+    .kastam-footer-title span:hover {
+      transform: translateY(-6px) scale(1.06);
     }
 
     * {
@@ -77,42 +126,75 @@
       padding: 20px 16px;
     }
 
-    /* TOP BAR */
-    .topbar {
+    /* RETRO FULL-WIDTH WEBPAGE HEADER BAR */
+    .topbar-banner {
+      width: 100%;
+      background: linear-gradient(180deg, #fdd97a 0%, var(--gold) 100%);
+      border-bottom: 3px solid var(--ink);
+      padding: 0 24px;
+      user-select: none;
+      position: relative;
+    }
+
+    .topbar-content {
+      max-width: 1040px;
+      margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 28px;
-      background: var(--white);
-      border: 3px solid var(--ink);
-      border-radius: 16px;
-      padding: 12px 18px;
-      box-shadow: var(--shadow);
+      height: 60px;
+    }
+
+    .topbar-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
     }
 
     .logo-icon {
-      width: 42px;
-      height: 42px;
-      border: 3px solid var(--ink);
-      border-radius: 12px;
-      background: var(--gold);
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--ink);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 22px;
-      box-shadow: 2px 2px 0 var(--ink);
+      overflow: hidden;
+      flex-shrink: 0;
     }
 
     .logo-word {
       font-weight: 700;
-      font-size: 18px;
-      letter-spacing: -0.02em;
+      font-size: 20px;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+    }
+
+    .topbar-dots {
+      display: flex;
+      gap: 5px;
+      margin-left: 6px;
+      opacity: 0.35;
+    }
+
+    .topbar-dots span {
+      display: block;
+      width: 4px;
+      height: 4px;
+      background: var(--ink);
+      border-radius: 50%;
     }
 
     .mobile-logo {
@@ -127,33 +209,216 @@
       .mobile-logo {
         display: inline;
       }
+
+      .topbar-dots {
+        display: none;
+      }
+
+      .topbar-content {
+        height: 52px;
+      }
+
+      .topbar-banner {
+        padding: 0 14px;
+      }
+    }
+
+    .window-close-btn {
+      background: none;
+      color: var(--ink);
+      border: none;
+      padding: 4px;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 18px;
+      cursor: pointer;
+      line-height: 1;
+      opacity: 0.5;
+      transition: opacity 0.15s;
+    }
+
+    .window-close-btn:hover {
+      opacity: 1;
+    }
+
+    .window-close-btn:active {
+      opacity: 0.3;
     }
 
     .lang-switch {
       display: flex;
-      gap: 4px;
-      background: var(--bg);
-      padding: 4px;
-      border: 2.5px solid var(--ink);
-      border-radius: 12px;
+      gap: 0;
+      background: rgba(0, 0, 0, 0.08);
+      padding: 3px;
+      border-radius: 10px;
     }
 
     .lang-btn {
       border: none;
       background: transparent;
-      padding: 6px 12px;
+      padding: 5px 14px;
       border-radius: 8px;
       font-family: var(--font-heading);
       font-weight: 700;
-      font-size: 12.5px;
+      font-size: 12px;
       cursor: pointer;
-      transition: background 0.15s, transform 0.1s;
+      transition: all 0.2s ease;
+      color: var(--ink);
+      opacity: 0.6;
+    }
+
+    .lang-btn:hover {
+      opacity: 0.85;
     }
 
     .lang-btn.active {
+      background: var(--white);
+      opacity: 1;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+    }
+
+    /* FATE POPUP */
+    .retro-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(20, 20, 20, 0.55);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .retro-overlay.open {
+      display: flex;
+    }
+
+    .retro-dialog {
+      background: var(--white);
+      border: 3px solid var(--ink);
+      border-radius: 18px;
+      box-shadow: 8px 8px 0 var(--ink);
+      width: min(380px, 94vw);
+      overflow: hidden;
+      font-family: var(--font-heading);
+      animation: retroPop 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    @keyframes retroPop {
+      from { transform: scale(0.82) translateY(12px); opacity: 0; }
+      to   { transform: scale(1) translateY(0);       opacity: 1; }
+    }
+
+    .retro-titlebar {
       background: var(--gold);
-      border: 2px solid var(--ink);
-      box-shadow: 2px 2px 0 var(--ink);
+      border-bottom: 3px solid var(--ink);
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+    }
+
+    .retro-titlebar-text {
+      color: var(--ink);
+      font-family: var(--font-heading);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .retro-titlebar-close {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--ink);
+      cursor: pointer;
+      opacity: 0.5;
+      background: none;
+      border: none;
+      font-family: var(--font-heading);
+      line-height: 1;
+      transition: opacity 0.15s;
+    }
+
+    .retro-titlebar-close:hover {
+      opacity: 1;
+    }
+
+    .retro-body {
+      padding: 24px 20px 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      background: var(--bg);
+    }
+
+    .retro-error-icon {
+      width: 52px;
+      height: 52px;
+      flex-shrink: 0;
+      background: var(--coral);
+      border: 3px solid var(--ink);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--white);
+      font-family: var(--font-heading);
+      box-shadow: 3px 3px 0 var(--ink);
+      line-height: 1;
+    }
+
+    .retro-msg {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: var(--ink);
+      font-family: var(--font-body);
+    }
+
+    .retro-msg strong {
+      display: block;
+      font-size: 15px;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.01em;
+    }
+
+    .retro-footer {
+      padding: 14px 20px 20px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      background: var(--bg);
+      border-top: 2px solid rgba(20,20,20,0.1);
+    }
+
+    .retro-btn {
+      background: var(--white);
+      border: 3px solid var(--ink);
+      border-radius: 12px;
+      padding: 10px 28px;
+      font-family: var(--font-heading);
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      color: var(--ink);
+      box-shadow: 3px 3px 0 var(--ink);
+      transition: transform 0.1s, box-shadow 0.1s;
+      letter-spacing: 0.02em;
+    }
+
+    .retro-btn:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 4px 4px 0 var(--ink);
+    }
+
+    .retro-btn:active {
+      transform: translate(2px, 2px);
+      box-shadow: 1px 1px 0 var(--ink);
     }
 
     /* HERO */
@@ -1201,22 +1466,31 @@
     </div>
   </div>
 
-  <div class="container">
-
-    <!-- TOPBAR -->
-    <div class="topbar">
-      <div class="brand">
-        <div class="logo-icon"><img src="/icon.svg" alt="Kastam.ai" style="width:26px;height:26px;display:block;"></div>
-        <div class="logo-word mono"><span class="desktop-logo">Kastam.ai</span><span
-            class="mobile-logo">Kastam.ai</span></div>
+  <!-- RETRO FULL-WIDTH WEBPAGE HEADER BAR AT VERY TOP OF WEBPAGE -->
+  <div class="topbar-banner">
+    <div class="topbar-content">
+      <div class="topbar-left">
+        <div class="brand">
+          <div class="logo-icon"><img src="/icon.svg" alt="Kastam.ai" style="width:28px;height:28px;display:block;">
+          </div>
+          <div class="logo-word mono"><span class="desktop-logo">Kastam.ai</span><span
+              class="mobile-logo">Kastam.ai</span></div>
+        </div>
+        <div class="topbar-dots"><span></span><span></span><span></span></div>
       </div>
-      <div class="lang-switch">
-        <button class="lang-btn active" id="btn-en" onclick="setLanguage('en')">EN</button>
-        <button class="lang-btn" id="btn-ml" onclick="setLanguage('ml')">മലയാളം</button>
+      <div class="topbar-right">
+        <div class="lang-switch">
+          <button class="lang-btn active" id="btn-en" onclick="setLanguage('en')">EN</button>
+          <button class="lang-btn" id="btn-ml" onclick="setLanguage('ml')">മലയാളം</button>
+        </div>
+        <button class="window-close-btn" title="Close Window" onclick="handleWindowClose()">✕</button>
       </div>
     </div>
+  </div>
 
-    <!-- HERO SECTION (NO BRUTAL AI AUTOPSY TAG AS REQUESTED) -->
+  <div class="container">
+
+    <!-- HERO SECTION -->
     <div class="hero">
       <h1 id="ui-title">Every startup dies.<br><span class="accent">Find out how yours does.</span></h1>
       <p id="ui-subtitle">Before investors reject you... Let AI roast your delusion first.</p>
@@ -1542,6 +1816,17 @@
       </div>
     </div>
 
+    <!-- KASTAM BRANDING INSIDE RESULTS -->
+    <div id="results-kastam" style="display:none;" class="kastam-footer-title google-font" aria-label="KASTAM">
+      <span class="g-blue">K</span><span class="g-red">A</span><span class="g-yellow">S</span><span class="g-blue">T</span><span class="g-green">A</span><span class="g-red">M</span>
+    </div>
+
+    <!-- BOTTOM GOOGLE KASTAM BRANDING -->
+    <div class="kastam-footer-title google-font" aria-label="KASTAM">
+      <span class="g-blue">K</span><span class="g-red">A</span><span class="g-yellow">S</span><span
+        class="g-blue">T</span><span class="g-green">A</span><span class="g-red">M</span>
+    </div>
+
     <!-- BOTTOM FOOTER UPDATED EXACTLY AS REQUESTED -->
     <footer>
       <p>Your idea is safe here. Your ego? No promises. <span style="font-size: 10px; opacity: 0.4; margin-left: 8px;"
@@ -1550,12 +1835,41 @@
 
   </div>
 
+  <!-- FATE POPUP -->
+  <div class="retro-overlay" id="retroPopup">
+    <div class="retro-dialog">
+      <div class="retro-titlebar">
+        <span class="retro-titlebar-text">⚠ &nbsp;Error</span>
+        <button class="retro-titlebar-close" onclick="closeRetroPopup()">✕</button>
+      </div>
+      <div class="retro-body">
+        <div class="retro-error-icon">✕</div>
+        <div class="retro-msg">
+          <strong>You can't close fate.</strong>
+          Your startup autopsy is already in progress. There is no escape.
+        </div>
+      </div>
+      <div class="retro-footer">
+        <button class="retro-btn" onclick="closeRetroPopup()">OK</button>
+        <button class="retro-btn" onclick="closeRetroPopup()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
   <!-- TOAST COMPONENT -->
   <div id="toast"
     style="display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: var(--ink); color: var(--white); padding: 12px 24px; border-radius: 8px; box-shadow: var(--shadow-lg); z-index: 1000; transition: opacity 0.3s; opacity: 0; pointer-events: none; font-family: var(--font-body); font-weight: 600;">
   </div>
 
   <script>
+    function handleWindowClose() {
+      document.getElementById('retroPopup').classList.add('open');
+    }
+
+    function closeRetroPopup() {
+      document.getElementById('retroPopup').classList.remove('open');
+    }
+
     function showToast(msg) {
       const toast = document.getElementById('toast');
       if (!toast) return;
@@ -1831,6 +2145,8 @@
 
     function renderResults(d) {
       document.getElementById('results').style.display = 'block';
+      const kastamEl = document.getElementById('results-kastam');
+      if (kastamEl) kastamEl.style.display = 'flex';
 
       // Gauge Meter
       const pct = d.survival;
@@ -1965,6 +2281,8 @@
 
     function resetApp() {
       document.getElementById('results').style.display = 'none';
+      const kastamEl = document.getElementById('results-kastam');
+      if (kastamEl) kastamEl.style.display = 'none';
       const ideaEl = document.getElementById('ideaInput');
       if (ideaEl) ideaEl.value = '';
       window.scrollTo({ top: 0, behavior: 'smooth' });
