@@ -1816,11 +1816,10 @@
       </div>
     </div>
 
-    <!-- KASTAM BRANDING INSIDE RESULTS -->
-    <div id="results-kastam" style="display:none;" class="kastam-footer-title google-font" aria-label="KASTAM">
+    <!-- GOOGLE KASTAM BRANDING (always visible) -->
+    <div class="kastam-footer-title google-font" aria-label="KASTAM">
       <span class="g-blue">K</span><span class="g-red">A</span><span class="g-yellow">S</span><span class="g-blue">T</span><span class="g-green">A</span><span class="g-red">M</span>
     </div>
-
 
     <!-- BOTTOM FOOTER UPDATED EXACTLY AS REQUESTED -->
     <footer>
@@ -2140,8 +2139,6 @@
 
     function renderResults(d) {
       document.getElementById('results').style.display = 'block';
-      const kastamEl = document.getElementById('results-kastam');
-      if (kastamEl) kastamEl.style.display = 'flex';
 
       // Gauge Meter
       const pct = d.survival;
@@ -2276,8 +2273,6 @@
 
     function resetApp() {
       document.getElementById('results').style.display = 'none';
-      const kastamEl = document.getElementById('results-kastam');
-      if (kastamEl) kastamEl.style.display = 'none';
       const ideaEl = document.getElementById('ideaInput');
       if (ideaEl) ideaEl.value = '';
       window.scrollTo({ top: 0, behavior: 'smooth' });
