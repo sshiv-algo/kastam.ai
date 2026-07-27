@@ -242,26 +242,28 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 14px;
-      flex-wrap: wrap;
+      gap: 12px;
+      flex-wrap: nowrap;
       width: 100%;
+      max-width: 100%;
     }
 
     .social-btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      padding: 12px 22px;
+      gap: 8px;
+      padding: 12px 18px;
       border-radius: 14px;
       border: 3px solid var(--ink);
       box-shadow: 4px 4px 0 var(--ink);
       font-family: var(--font-heading);
       font-weight: 700;
-      font-size: 16px;
+      font-size: 15px;
       color: var(--white);
       text-decoration: none;
       cursor: pointer;
+      white-space: nowrap;
       transition: transform 0.15s, box-shadow 0.15s;
     }
 
@@ -285,6 +287,29 @@
 
     .social-btn-linkedin {
       background: #0A66C1;
+    }
+
+    @media (max-width: 640px) {
+      .social-btn-row {
+        gap: 6px;
+        flex-wrap: nowrap;
+      }
+
+      .social-btn {
+        flex: 1;
+        padding: 8px 4px;
+        font-size: 11px;
+        gap: 4px;
+        border: 2px solid var(--ink);
+        border-radius: 10px;
+        box-shadow: 2.5px 2.5px 0 var(--ink);
+      }
+
+      .social-btn svg {
+        width: 14px;
+        height: 14px;
+        flex-shrink: 0;
+      }
     }
 
     * {
@@ -2016,11 +2041,16 @@
       <span class="g-blue">K</span><span class="g-red">A</span><span class="g-yellow">S</span><span
         class="g-blue">T</span><span class="g-green">A</span><span class="g-red">M</span>
     </div>
+    <!-- BOTTOM FOOTER -->
+    <footer>
+      <p>Your idea is safe here. Your ego? No promises. <span style="font-size: 10px; opacity: 0.4; margin-left: 8px;"
+          class="mono" id="versionBadge">v2026.07.23-v2</span></p>
+    </footer>
 
     <!-- EXACT REFERENCE FOOTER -->
     <div class="ref-footer">
       <div class="ref-footer-madeby">
-        MADE BY sshiv-algo<a href="#" target="_blank" rel="noopener noreferrer">sshiv-algo</a>
+        MADE BY <a href="https://github.com/sshiv-algo" target="_blank" rel="noopener noreferrer">sshiv-algo</a>
       </div>
 
       <a href="https://www.producthunt.com" target="_blank" rel="noopener noreferrer" class="ph-card">
@@ -2070,11 +2100,6 @@
       </div>
     </div>
 
-    <!-- BOTTOM FOOTER -->
-    <footer>
-      <p>Your idea is safe here. Your ego? No promises. <span style="font-size: 10px; opacity: 0.4; margin-left: 8px;"
-          class="mono" id="versionBadge">v2026.07.23-v2</span></p>
-    </footer>
 
   </div>
 
