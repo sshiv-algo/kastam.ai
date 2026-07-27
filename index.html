@@ -289,7 +289,7 @@
       background: #0A66C1;
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 500px) {
       .social-btn-row {
         gap: 6px;
         flex-wrap: nowrap;
@@ -311,6 +311,412 @@
         flex-shrink: 0;
       }
     }
+
+    /* ════════════════════════════════════════
+       SUPPORT BAR + POPUP — NEO-BRUTALIST
+       ════════════════════════════════════════ */
+
+    /* Fixed Bottom Bar */
+    .kb-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: #F5EDD4;
+      border-top: 3px solid #141414;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      z-index: 900;
+      gap: 12px;
+    }
+
+    .kb-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .kb-bar-tomb {
+      font-size: 28px;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+
+    .kb-bar-text {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .kb-bar-headline {
+      font-family: 'Space Mono', monospace;
+      font-weight: 700;
+      font-size: 13px;
+      color: #141414;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 1.2;
+    }
+
+    .kb-bar-sub {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: #6a5e48;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 1.3;
+    }
+
+    .kb-bar-btn {
+      flex-shrink: 0;
+      background: #FF6B5E;
+      color: #fff;
+      border: 2.5px solid #141414;
+      border-radius: 8px;
+      box-shadow: 2px 2px 0 #141414;
+      padding: 8px 14px;
+      font-family: 'Space Mono', monospace;
+      font-weight: 700;
+      font-size: 12px;
+      cursor: pointer;
+      transition: transform 0.1s, box-shadow 0.1s;
+      white-space: nowrap;
+    }
+
+    .kb-bar-btn:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 3px 3px 0 #141414;
+    }
+
+    .kb-bar-btn:active {
+      transform: translate(1px, 1px);
+      box-shadow: 1px 1px 0 #141414;
+    }
+
+    /* Support Modal */
+    .kb-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+      z-index: 10000;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .kb-overlay.open {
+      display: flex;
+    }
+
+    .kb-card {
+      background: #F5EDD4;
+      border: 3px solid #141414;
+      border-radius: 10px;
+      box-shadow: 7px 7px 0 #141414;
+      width: min(340px, 94vw);
+      overflow: hidden;
+      animation: kbPop 0.2s ease both;
+      position: relative;
+    }
+
+    @keyframes kbPop {
+      from {
+        transform: scale(0.95);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    /* Header strip */
+    .kb-header {
+      background: #FF6B5E;
+      border-bottom: 3px solid #141414;
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .kb-header-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .kb-header-icon {
+      width: 26px;
+      height: 26px;
+      background: #fff;
+      border: 2px solid #141414;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      line-height: 1;
+    }
+
+    .kb-header-title {
+      font-family: 'Space Mono', monospace;
+      font-weight: 700;
+      font-size: 13px;
+      color: #fff;
+      letter-spacing: 0.04em;
+    }
+
+    .kb-close {
+      background: #141414;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      width: 28px;
+      height: 28px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Space Mono', monospace;
+      flex-shrink: 0;
+    }
+
+    /* Body */
+    .kb-body {
+      padding: 20px 18px 18px;
+      text-align: center;
+      position: relative;
+    }
+
+    .kb-skull {
+      font-size: 36px;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .kb-title {
+      font-family: 'Space Mono', monospace;
+      font-weight: 700;
+      font-size: 17px;
+      color: #141414;
+      margin: 0 0 6px;
+    }
+
+    .kb-sub {
+      font-family: 'Space Mono', monospace;
+      font-size: 11.5px;
+      color: #6a5e48;
+      margin: 0 0 18px;
+      line-height: 1.5;
+    }
+
+    /* QR box */
+    .kb-qr-block {
+      background: #F5EDD4;
+      border: 2px solid #141414;
+      border-radius: 10px;
+      box-shadow: 3px 3px 0 #141414;
+      padding: 16px;
+      margin-bottom: 16px;
+      /* faint dot grid */
+      background-image: radial-gradient(#141414 0.6px, transparent 0.6px);
+      background-size: 10px 10px;
+      background-color: #F5EDD4;
+      background-blend-mode: normal;
+      position: relative;
+    }
+
+    /* Override the dot-grid opacity */
+    .kb-qr-block::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(#141414 0.5px, transparent 0.5px);
+      background-size: 10px 10px;
+      opacity: 0.04;
+      border-radius: 8px;
+      pointer-events: none;
+    }
+
+    .kb-qr-img {
+      width: 140px;
+      height: 140px;
+      background: #141414;
+      border-radius: 4px;
+      margin: 0 auto 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      line-height: 1;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .kb-qr-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .kb-qr-img .kb-qr-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+    }
+
+    .kb-qr-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #6a5e48;
+      margin-bottom: 12px;
+    }
+
+    .kb-upi {
+      font-family: 'Space Mono', monospace;
+      font-weight: 700;
+      font-size: 13px;
+      color: #141414;
+      background: #F5EDD4;
+      border: 2px solid #141414;
+      border-radius: 6px;
+      box-shadow: 2px 2px 0 #141414;
+      padding: 9px 12px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      transition: transform 0.1s, box-shadow 0.1s;
+      position: relative;
+    }
+
+    .kb-upi:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 3px 3px 0 #141414;
+    }
+
+    .kb-upi:active {
+      transform: translate(1px, 1px);
+      box-shadow: 0 0 0 #141414;
+    }
+
+    .kb-upi-id {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .kb-copy-label {
+      font-size: 10px;
+      color: #6a5e48;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: color 0.2s;
+    }
+
+    .kb-copy-label.copied {
+      color: #1d8a45;
+    }
+
+    /* OR divider */
+    .kb-or {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 14px 0;
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      color: #6a5e48;
+      letter-spacing: 0.1em;
+    }
+
+    .kb-or::before,
+    .kb-or::after {
+      content: '';
+      flex: 1;
+      border-top: 1.5px dashed #141414;
+      opacity: 0.3;
+    }
+
+    /* BMaC button */
+    .kb-bmac {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      background: #F4B942;
+      border: 3px solid #141414;
+      border-radius: 8px;
+      box-shadow: 4px 4px 0 #141414;
+      padding: 13px;
+      font-family: 'Space Mono', monospace;
+      font-weight: 700;
+      font-size: 14px;
+      color: #141414;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.1s, box-shadow 0.1s;
+    }
+
+    .kb-bmac:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0 #141414;
+    }
+
+    .kb-bmac:active {
+      transform: translate(2px, 2px);
+      box-shadow: 1px 1px 0 #141414;
+    }
+
+    .kb-footer-note {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      color: #6a5e48;
+      margin-top: 14px;
+      text-align: center;
+    }
+
+    /* Watermark stamp */
+    .kb-stamp {
+      position: absolute;
+      bottom: 12px;
+      right: 10px;
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      font-weight: 700;
+      color: #FF6B5E;
+      border: 2px solid #FF6B5E;
+      padding: 2px 6px;
+      border-radius: 3px;
+      transform: rotate(-8deg);
+      opacity: 0.18;
+      pointer-events: none;
+      letter-spacing: 0.06em;
+      white-space: nowrap;
+    }
+
+    /* ════ end support ════ */
 
     * {
       box-sizing: border-box;
@@ -2103,6 +2509,56 @@
 
   </div>
 
+  <!-- ─── SUPPORT BOTTOM BAR ─── -->
+  <div class="kb-bar" id="kbBar">
+    <div class="kb-bar-left">
+      <span class="kb-bar-tomb">🪦</span>
+      <div class="kb-bar-text">
+        <span class="kb-bar-headline">Don't let Kastam die next.</span>
+        <span class="kb-bar-sub">It buries ideas, not itself</span>
+      </div>
+    </div>
+    <button class="kb-bar-btn" onclick="kbOpen()">Keep alive</button>
+  </div>
+
+  <!-- ─── SUPPORT POPUP ─── -->
+  <div class="kb-overlay" id="kbOverlay" onclick="if(event.target===this)kbClose()">
+    <div class="kb-card">
+
+      <div class="kb-header">
+        <div class="kb-header-left">
+          <div class="kb-header-icon">♥</div>
+          <span class="kb-header-title">SUPPORT KASTAM</span>
+        </div>
+        <button class="kb-close" onclick="kbClose()">✕</button>
+      </div>
+
+      <div class="kb-body">
+        <div class="kb-skull">🪦</div>
+        <h3 class="kb-title">Loved the Roast? 💀</h3>
+        <p class="kb-sub">Keep it free — even <strong>₹1</strong> makes a huge difference 🙏</p>
+
+        <div class="kb-qr-block">
+          <!-- QR area: swap img src for your real QR file, e.g. /qr.png -->
+          <div class="kb-qr-img" id="kbQrBox">
+            <img src="/qr.jpeg" alt="UPI QR Code" onerror="this.style.display='none'"
+              style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+            <div class="kb-qr-placeholder">🪙</div>
+          </div>
+          <div class="kb-qr-label">Scan to pay · UPI</div>
+          <div class="kb-upi" id="kbUpiChip" onclick="kbCopyUpi()" title="Click to copy">
+            <span class="kb-upi-id" id="kbUpiText">shivadev.sunil@oksbi</span>
+            <span class="kb-copy-label" id="kbCopyLabel">Copy ↗</span>
+          </div>
+        </div>
+
+        <p class="kb-footer-note">100% goes to server costs and caffeine</p>
+
+        <div class="kb-stamp">MUCH APPRECIATED ☠</div>
+      </div>
+    </div>
+  </div>
+
   <!-- FATE POPUP -->
   <div class="retro-overlay" id="retroPopup">
     <div class="retro-dialog">
@@ -2130,6 +2586,24 @@
   </div>
 
   <script>
+    /* ── Support popup ── */
+    function kbOpen() {
+      document.getElementById('kbOverlay').classList.add('open');
+    }
+    function kbClose() {
+      document.getElementById('kbOverlay').classList.remove('open');
+    }
+    function kbCopyUpi() {
+      const id = document.getElementById('kbUpiText').innerText.trim();
+      const label = document.getElementById('kbCopyLabel');
+      navigator.clipboard.writeText(id).then(() => {
+        label.textContent = 'Copied ✓';
+        label.classList.add('copied');
+        setTimeout(() => { label.textContent = 'Copy ↗'; label.classList.remove('copied'); }, 1500);
+      });
+    }
+    /* ───────────────── */
+
     function handleWindowClose() {
       document.getElementById('retroPopup').classList.add('open');
     }
