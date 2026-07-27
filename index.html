@@ -99,6 +99,194 @@
       transform: translateY(-6px) scale(1.06);
     }
 
+    /* REFERENCE FOOTER STYLES */
+    .ref-footer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 40px auto 20px auto;
+      max-width: 600px;
+      width: 100%;
+      user-select: none;
+    }
+
+    .ref-footer-madeby {
+      font-family: var(--font-heading);
+      font-size: 13px;
+      font-weight: 700;
+      color: #888888;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .ref-footer-madeby a {
+      color: var(--ink);
+      text-decoration: underline;
+      text-decoration-thickness: 2.5px;
+      text-underline-offset: 4px;
+      font-weight: 800;
+      transition: opacity 0.15s;
+    }
+
+    .ref-footer-madeby a:hover {
+      opacity: 0.7;
+    }
+
+    /* Product Hunt Badge Card */
+    .ph-card {
+      background: var(--white);
+      border: 3px solid var(--ink);
+      border-radius: 16px;
+      box-shadow: 4px 4px 0 var(--ink);
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      width: 100%;
+      max-width: 360px;
+      text-decoration: none;
+      color: var(--ink);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+
+    .ph-card:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0 var(--ink);
+    }
+
+    .ph-card:active {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0 var(--ink);
+    }
+
+    .ph-card-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .ph-icon-circle {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #DA552F;
+      color: var(--white);
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+
+    .ph-text-group {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+
+    .ph-sub {
+      font-family: var(--font-heading);
+      font-size: 10px;
+      font-weight: 700;
+      color: #888888;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+
+    .ph-main {
+      font-family: var(--font-heading);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+
+    .ph-vote-btn {
+      background: #DA552F;
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      padding: 6px 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--white);
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 15px;
+      flex-shrink: 0;
+    }
+
+    .ph-vote-btn span.arrow {
+      font-size: 11px;
+    }
+
+    /* Dashed Divider */
+    .ref-footer-divider {
+      width: 100%;
+      border: none;
+      border-top: 2px dashed rgba(20, 20, 20, 0.25);
+      margin: 28px 0;
+    }
+
+    /* Social Buttons Row */
+    .social-btn-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 22px;
+      border-radius: 14px;
+      border: 3px solid var(--ink);
+      box-shadow: 4px 4px 0 var(--ink);
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--white);
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+
+    .social-btn:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0 var(--ink);
+    }
+
+    .social-btn:active {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0 var(--ink);
+    }
+
+    .social-btn-github {
+      background: #181818;
+    }
+
+    .social-btn-instagram {
+      background: #E43375;
+    }
+
+    .social-btn-linkedin {
+      background: #0A66C1;
+    }
+
     * {
       box-sizing: border-box;
       -webkit-tap-highlight-color: transparent;
@@ -1821,7 +2009,46 @@
       <span class="g-blue">K</span><span class="g-red">A</span><span class="g-yellow">S</span><span class="g-blue">T</span><span class="g-green">A</span><span class="g-red">M</span>
     </div>
 
-    <!-- BOTTOM FOOTER UPDATED EXACTLY AS REQUESTED -->
+    <!-- EXACT REFERENCE FOOTER -->
+    <div class="ref-footer">
+      <div class="ref-footer-madeby">
+        MADE BY <a href="#" target="_blank" rel="noopener noreferrer">Z0XILSI</a>
+      </div>
+
+      <a href="https://www.producthunt.com" target="_blank" rel="noopener noreferrer" class="ph-card">
+        <div class="ph-card-left">
+          <div class="ph-icon-circle">P</div>
+          <div class="ph-text-group">
+            <span class="ph-sub">FIND US ON</span>
+            <span class="ph-main">Product Hunt</span>
+          </div>
+        </div>
+        <div class="ph-vote-btn">
+          <span class="arrow">▲</span> 11
+        </div>
+      </a>
+
+      <hr class="ref-footer-divider">
+
+      <div class="social-btn-row">
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-btn social-btn-github">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          <span>Follow</span>
+        </a>
+
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-btn social-btn-instagram">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          <span>Follow</span>
+        </a>
+
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-btn social-btn-linkedin">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.78a1.62 1.62 0 1 0 0 3.24 1.62 1.62 0 0 0 0-3.24z"/></svg>
+          <span>Connect</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- BOTTOM FOOTER -->
     <footer>
       <p>Your idea is safe here. Your ego? No promises. <span style="font-size: 10px; opacity: 0.4; margin-left: 8px;"
           class="mono" id="versionBadge">v2026.07.23-v2</span></p>
