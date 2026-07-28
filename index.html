@@ -2068,6 +2068,142 @@
       color: #444;
       line-height: 1.5;
     }
+
+    /* ============================================================
+       DESKTOP CARD HEIGHT EQUALISATION — desktop only (min-width: 861px)
+       Mirrors the existing breakpoint so mobile is NEVER touched.
+       ============================================================ */
+    @media (min-width: 861px) {
+
+      /* Every result card becomes a flex column so card-body can grow */
+      #results .card {
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* card-body fills remaining height inside the card */
+      #results .card-body {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* ---- Row 1: Survival Chance (col-8) + Death Certificate (col-4) ---- */
+
+      /* Survival Chance: mint body stretches; keep content row-centred */
+      .meter-card .card-body {
+        flex-direction: row;        /* override column back to row for gauge layout */
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      /* Death Certificate column wrapper (not a .card) — also needs to stretch */
+      #results .col-4:has(#certCard) {
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* cert-card-attached grows to fill the wrapper */
+      .cert-card-attached {
+        flex: 1;
+      }
+
+      /* ---- Row 2: Financial Disaster (burn-card) ---- */
+
+      /* burn-card body: keep pink bg, content anchored to top */
+      .burn-card .card-body {
+        justify-content: flex-start;
+      }
+
+      /* ---- Row 3: Customer Review / Reddit / Twitter (col-4 each) ---- */
+
+      /* Reddit inner post box grows */
+      .reddit-card .card-body {
+        justify-content: flex-start;
+      }
+
+      .reddit-post-box {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* Reddit comments area grows to fill */
+      .reddit-comment-item {
+        flex: 1;
+      }
+
+      /* Twitter inner tweet box grows */
+      .twitter-card .card-body {
+        justify-content: flex-start;
+      }
+
+      .tweet-box {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* tweet text fills space above stats bar */
+      .tweet-text {
+        flex: 1;
+      }
+
+      /* ---- Row 4: TechCrunch (tc-card) + Rejection Letter (email-card) ---- */
+
+      .tc-card .card-body {
+        justify-content: flex-start;
+      }
+
+      .tc-article-box {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* tc article sub-text fills space above byline */
+      .tc-sub-text {
+        flex: 1;
+      }
+
+      /* email card body */
+      .email-card .card-body {
+        justify-content: flex-start;
+      }
+
+      /* email inner box grows to fill the card body */
+      .email-box {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* ---- Row 5: LinkedIn + Board Voice Selector ---- */
+
+      .linkedin-card .card-body {
+        justify-content: flex-start;
+      }
+
+      /* LinkedIn inner post box grows */
+      .linkedin-post-box {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* LinkedIn post body fills space above reactions bar */
+      .linkedin-post-body {
+        flex: 1;
+      }
+
+      .persona-card .card-body {
+        justify-content: flex-start;
+      }
+
+    }
+    /* ============================================================
+       END DESKTOP CARD HEIGHT EQUALISATION
+       ============================================================ */
   </style>
 </head>
 
